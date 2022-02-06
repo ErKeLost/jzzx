@@ -1,6 +1,6 @@
 {
   "name": "jzzx-cli",
-  "version": "1.0.0",
+  "version": "1.0.0beta-0.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.0",
+    "chalk": "4.1.0",
     "chalk-animation": "^1.6.0",
     "commander": "^9.0.0",
+    "download-git-repo": "^3.0.2",
+    "ejs": "^3.1.6",
     "esbuild": "^0.14.18",
     "figlet": "^1.5.2",
     "fs-extra": "^10.0.0",

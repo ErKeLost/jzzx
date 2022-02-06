@@ -70,6 +70,7 @@
 //     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
 //   }
 // }
+///// --------------------------
 {
   "compilerOptions": {
     "target": "ES2018",
@@ -85,6 +86,7 @@
     "importHelpers": false,
     "strictNullChecks": false,
     "allowUnreachableCode": true,
+    // "declaration": true,
     "lib": ["es6", "DOM"],
     "typeRoots": ["./node_modules/@types"],
     "outDir": "./lib", // 重定向输出目录
@@ -104,3 +106,26 @@
   "compileOnSave": false,
   "buildOnSave": false
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "ES2018",
+//     "module": "commonjs",
+//     "moduleResolution": "node",
+//     "experimentalDecorators": true,
+//     "emitDecoratorMetadata": true,
+//     // "inlineSourceMap":true,
+//     // "noImplicitThis": true,
+//     // "noUnusedLocals": true,
+//     // "stripInternal": true,
+//     // "pretty": true,
+//     // "declaration": true,
+//     "outDir": "./lib", // 重定向输出目录
+//     "rootDir": "./src" // 仅用来控制输出的目录结构
+//   },
+//   // "exclude": [
+//   //   "lib",
+//   //   "node_modules",
+//   //   "test"
+//   // ]
+// }

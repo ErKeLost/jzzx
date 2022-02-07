@@ -8,4 +8,5 @@ import { red } from './utils/log'
 cloneProjectCommand();
 addComponentCommand();
 helpOptions();
+
 program.parse(process.argv);

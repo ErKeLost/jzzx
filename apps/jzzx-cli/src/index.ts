@@ -2,11 +2,10 @@
 
 import program from "./core/program";
 import helpOptions from "./core/help";
-import cloneProjectRecommand from "./core/command/clone";
-import addComponentRecommand from "./core/command/add-component";
-cloneProjectRecommand();
-addComponentRecommand();
+import cloneProjectCommand from "./core/command/clone";
+import addComponentCommand from "./core/command/add-component";
+import { red } from './utils/log'
+cloneProjectCommand();
+addComponentCommand();
 helpOptions();
-console.log(program.description);
-
 program.parse(process.argv);

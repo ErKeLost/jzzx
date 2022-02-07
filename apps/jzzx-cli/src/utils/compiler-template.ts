@@ -1,11 +1,13 @@
-import ejs from "ejs";
-import path from "path";
-import fs from "fs";
+import {renderFile} from "ejs";
+import {resolve} from "path";
+// import path from "path";
+// const path = require("path");
+import fs, { promises } from "fs";
 const compile = (templateName, data) => {
   const templatePosition = `../template/${templateName}`;
-  const templatePath = path.resolve(__dirname, templatePosition);
+  const templatePath = resolve(__dirname, templatePosition);
   return new Promise((resolve, reject) => {
-    ejs.renderFile(templatePath, { data }, {}, (err, res) => {
+    renderFile(templatePath, { data }, {}, (err, res) => {
       if (err) {
         console.log(err);
         reject(err);
@@ -17,7 +19,7 @@ const compile = (templateName, data) => {
 };
 
 const writeToFile = (path, content) => {
-  return fs.promises.writeFile(path, content)
+  return promises.writeFile(path, content)
 };
 
 export { compile, writeToFile };

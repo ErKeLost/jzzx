@@ -5,11 +5,12 @@ import { addComponentAction } from "./actions/add-component-actions";
 const addComponentRecommands = () => {
   program
     // 可变层参数
-    .command("addcpn <name> [others...]")
+    .command("addcpn <name>")
     .description("新增vue组件， 例如 jzzx addcpn helloworld -d src/components")
-    .action((name) => {
-      addComponentAction(name, program.description || "src/components");
-    });
+    .action((name) =>
+      // addComponentAction(name, program.description || "src/components");
+       addComponentAction(name, "src/components")
+    );
 };
 
 export default addComponentRecommands;

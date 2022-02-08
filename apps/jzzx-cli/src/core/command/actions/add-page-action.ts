@@ -14,12 +14,13 @@ const addPageAction = async (name, dest) => {
     name,
     lowerName: name.toLowerCase(),
   });
-  if (createDirSync(dest)) {
-    const targetPagePath = resolve(dest, `${name}.vue`);
-    const targetRoutePath = resolve(dest, "route.js");
-    writeToFile(targetPagePath, pageResult);
-    writeToFile(targetRoutePath, routeResult);
-  }
+  createDirSync(dest)
+  // if (createDirSync(dest)) {
+  const targetPagePath = resolve(dest, `${name}.vue`);
+  const targetRoutePath = resolve(dest, "route.js");
+  writeToFile(targetPagePath, pageResult);
+  writeToFile(targetRoutePath, routeResult);
+  // }
 };
 
 export default addPageAction;

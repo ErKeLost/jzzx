@@ -12,19 +12,19 @@ const createProjectAction = async (project, dest) => {
   prompt([chooseRepoPrompt]).then(async (answers) => {
     const loading = ora(red("下载中"));
     loading.spinner = {
-      interval: 70, //转轮动画每帧之间的时间间隔
+      interval: 300, //转轮动画每帧之间的时间间隔
       frames: ["✹"],
     };
     loading.color = "blue";
     loading.start();
 
     // 打印互用输入结果
-    // await download(answers.repo, project, { clone: true });
-    // // installed
-    // const systemCommand = process.platform === "win32" ? "npm.cmd" : "npm";
-    // await commandSpawn(systemCommand, ["install"], { cwd: `./${project}` });
-    // // 防止阻塞 同步线程
-    // commandSpawn(systemCommand, ["run", "serve"], { cwd: `./${project}` });
+    await download(vueRepo, project, { clone: true });
+    // installed
+    const systemCommand = process.platform === "win32" ? "npm.cmd" : "npm";
+    await commandSpawn(systemCommand, ["install"], { cwd: `./${project}` });
+    // 防止阻塞 同步线程
+    commandSpawn(systemCommand, ["run", "serve"], { cwd: `./${project}` });
   });
 };
 export { createProjectAction };

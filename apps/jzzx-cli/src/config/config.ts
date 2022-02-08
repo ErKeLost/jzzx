@@ -1,4 +1,4 @@
-let vueRepo = "direct:https://gitee.com/ErKeLost/vue2-mobile.git"
+let vueRepo = "direct:https://github.com/coderwhy/hy-vue-temp.git"
 
 export {
   vueRepo

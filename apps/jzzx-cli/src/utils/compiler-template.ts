@@ -32,6 +32,7 @@ const createDirSync = (pathName): any => {
     // }
     if(createDirSync(dirname(pathName))) {
       mkdirSync(pathName)
+      return true
     }
   }
 }

@@ -1,6 +1,5 @@
 import program from "../../program";
 import {
-  createProjectAction,
   addComponentAction,
   addPageAction,
 } from "./actions";

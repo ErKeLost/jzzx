@@ -1,7 +1,7 @@
 // 普通加载路由
 // import <%= data.name %> from './<%= data.name %>.vue'
 // 懒加载路由
-const <%= data.name %> = () => import('./<%= data.name %>.vue')
+const <%= data.name %> = () => import('@/views/<%= data.name %>.vue')
 export default {
   path: '/<%= data.lowerName %>',
   name: '<%= data.name %>',

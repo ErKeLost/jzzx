@@ -5,19 +5,10 @@ import { red } from 'chalk'
 import commandSpawn from "../../../utils/terminal";
 import { vueRepo } from "../../../config/config";
 import { chooseRepoPrompt } from "./prompt-data";
-const ora = require("ora");
 const download = promisify(require("download-git-repo"));
 
 const createProjectAction = async (project, dest) => {
   prompt([chooseRepoPrompt]).then(async (answers) => {
-    const loading = ora(red("下载中"));
-    loading.spinner = {
-      interval: 300, //转轮动画每帧之间的时间间隔
-      frames: ["✹"],
-    };
-    loading.color = "blue";
-    loading.start();
-
     // 打印互用输入结果
     await download(vueRepo, project, { clone: true });
     // installed

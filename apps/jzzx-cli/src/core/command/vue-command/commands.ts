@@ -5,10 +5,7 @@ import {
   addPageAction,
 } from "./actions";
 const createVueCommand = () => {
-  program
-    .command("create <project> [others...]")
-    .description("克隆远程库 到你的文件夹")
-    .action(createProjectAction);
+
   program
     .command("addcpn <name>")
     .description(

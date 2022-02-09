@@ -3,6 +3,7 @@
   "version": "1.0.0beta-0.1.0",
   "description": "",
   "main": "lib/index.js",
+  "module": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"

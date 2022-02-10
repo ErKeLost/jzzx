@@ -5,6 +5,7 @@ const chooseFileType = {
   choices: [
     { name: "JavaScript", value: "js" },
     { name: "TypeScript", value: "ts" },
+    { name: "Tsx", value: "tsx"}
   ],
 };
 

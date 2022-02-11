@@ -81,6 +81,7 @@
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "sourceMap": false,
+    "strict": false,
     "noEmit": false,
     "noEmitHelpers": false,
     "importHelpers": false,

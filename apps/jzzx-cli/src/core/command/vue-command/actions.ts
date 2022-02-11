@@ -29,13 +29,27 @@ const addPageAction = async (name, dest) => {
     name,
     lowerName: name.toLowerCase(),
   });
-  const res = await prompt([chooseFileType])
-  createDirSync(`src/router/modules/${name}`)
-  createDirSync(dest)
+  const res = await prompt([chooseFileType]);
+  createDirSync(`src/router/modules/${name}`);
+  createDirSync(dest);
   const targetPagePath = resolve(dest, `${name}.vue`);
-  const targetRoutePath = resolve(`src/router/modules/${name}`, `${name}.${res.fileType}`);
+  const targetRoutePath = resolve(
+    `src/router/modules/${name}`,
+    `${name}.${res.fileType}`
+  );
   writeToFile(targetPagePath, pageResult);
   writeToFile(targetRoutePath, routeResult);
 };
 
-export { addComponentAction, addPageAction };
+const addStoreAction = async (name, dest) => {
+  const storeResult = await compile("vuex-store.ejs", {});
+  const mutationsTypes = await compile("vuex-types.ejs", {});
+  createDirSync(dest);
+  const res = await prompt([chooseFileType]);
+  const targetStorePath = resolve(dest, `${name}.${res.fileType}`);
+  const targetTypePath = resolve(dest, `mutation-type.${res.fileType}`);
+  writeToFile(targetStorePath, storeResult);
+  writeToFile(targetTypePath, mutationsTypes);
+};
+
+export { addComponentAction, addPageAction, addStoreAction };

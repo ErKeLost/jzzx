@@ -47,7 +47,7 @@ const addStoreAction = async (name, dest) => {
   createDirSync(dest);
   const res = await prompt([chooseFileType]);
   const targetStorePath = resolve(dest, `${name}.${res.fileType}`);
-  const targetTypePath = resolve(dest, `mutation-type.${res.fileType}`);
+  const targetTypePath = resolve(dest, `mutation-types.${res.fileType}`);
   writeToFile(targetStorePath, storeResult);
   writeToFile(targetTypePath, mutationsTypes);
 };

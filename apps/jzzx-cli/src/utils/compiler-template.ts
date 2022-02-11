@@ -42,4 +42,19 @@ const writeToFile = (path, content) => {
   return promises.writeFile(path, content)
 };
 
-export { compile, writeToFile, createDirSync };
+
+const handleEjsToFile = async (name, dest, template, filename) => {
+  // 1.获取模块引擎的路径
+  const templatePath = path.resolve(__dirname, template);
+  const result = await compile(templatePath, {name, lowerName: name.toLowerCase()});
+
+  // 2.写入文件中
+  // 判断文件不存在,那么就创建文件
+  createDirSync(dest);
+  const targetPath = path.resolve(dest, filename);
+  writeToFile(targetPath, result);
+}
+
+
+
+export { compile, writeToFile, createDirSync, handleEjsToFile };

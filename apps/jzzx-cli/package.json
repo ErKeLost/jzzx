@@ -1,6 +1,6 @@
 {
   "name": "jzzx-cli",
-  "version": "1.0.0beta-0.1.2",
+  "version": "1.0.0beta-0.1.3",
   "description": "",
   "main": "lib/index.js",
   "module": "lib/index.js",

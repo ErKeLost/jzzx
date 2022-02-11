@@ -29,7 +29,9 @@ const addPageAction = async (name, dest) => {
     name,
     lowerName: name.toLowerCase(),
   });
-  const res = prompt([chooseFileType])
+  const res = await prompt([chooseFileType])
+  createDirSync(`src/router/modules/${name}`)
+  createDirSync(dest)
   const targetPagePath = resolve(dest, `${name}.vue`);
   const targetRoutePath = resolve(`src/router/modules/${name}`, `${name}.${res.fileType}`);
   writeToFile(targetPagePath, pageResult);

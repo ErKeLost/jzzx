@@ -1,8 +1,19 @@
-import {renderFile} from "ejs";
-import path, {resolve, dirname} from "path";
+import { renderFile } from "ejs";
+import path, { resolve, dirname } from "path";
 // import path from "path";
 // const path = require("path");
 import fs, { promises, existsSync, mkdirSync } from "fs";
+const ejsCompile = (templatePath, data = {}, options = {}) => {
+  return new Promise((resolve, reject) => {
+    renderFile(templatePath, { data }, options, (err, str) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(str);
+    });
+  });
+};
 const compile = (templateName, data) => {
   const templatePosition = `../template/${templateName}`;
   const templatePath = resolve(__dirname, templatePosition);
@@ -20,7 +31,7 @@ const compile = (templateName, data) => {
 
 const createDirSync = (pathName): any => {
   if (existsSync(pathName)) {
-    return true
+    return true;
   } else {
     // TODO 递归
     // if (fs.existsSync(path.dirname(path))) {
@@ -30,31 +41,30 @@ const createDirSync = (pathName): any => {
 
     //   }
     // }
-    if(createDirSync(dirname(pathName))) {
-      mkdirSync(pathName)
-      return true
+    if (createDirSync(dirname(pathName))) {
+      mkdirSync(pathName);
+      return true;
     }
   }
-}
+};
 
 const writeToFile = (path, content) => {
   // TODO 判断path是否存在 不存在 就要创建文件夹
-  return promises.writeFile(path, content)
+  return promises.writeFile(path, content);
 };
-
 
 const handleEjsToFile = async (name, dest, template, filename) => {
   // 1.获取模块引擎的路径
-  const templatePath = path.resolve(__dirname, template);
-  const result = await compile(templatePath, {name, lowerName: name.toLowerCase()});
+  const templatePath = resolve(__dirname, template);
+  console.log(templatePath);
 
-  // 2.写入文件中
-  // 判断文件不存在,那么就创建文件
-  createDirSync(dest);
-  const targetPath = path.resolve(dest, filename);
-  writeToFile(targetPath, result);
-}
+  // const result = await compile(templatePath, {name, lowerName: name.toLowerCase()});
 
+  // // 2.写入文件中
+  // // 判断文件不存在,那么就创建文件
+  // createDirSync(dest);
+  // const targetPath = resolve(dest, filename);
+  // writeToFile(targetPath, result);
+};
 
-
-export { compile, writeToFile, createDirSync, handleEjsToFile };
+export { ejsCompile, compile, writeToFile, createDirSync, handleEjsToFile };

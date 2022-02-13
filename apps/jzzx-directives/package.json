@@ -1,0 +1,47 @@
+{
+    "name": "jzzx-directives",
+    "version": "1.0.0",
+    "description": "vue 兼容2 3 工具库 函数库",
+    "main": "index.js",
+    "module": "dist/index.vite.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rollup -c",
+        "copy": "cp package.json README.md dist",
+        "publish:directive": "node scripts/publish.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ErKeLost/vue-adny-frame.git"
+    },
+    "keywords": [
+        "vue-adny",
+        "vue2",
+        "vue3",
+        "TypeScript",
+        "rollup",
+        "directives",
+        "plugins"
+    ],
+    "author": "erkelost",
+    "license": "MIT",
+    "browser": "dist/index.js",
+    "devDependencies": {
+        "commander": "^8.2.0",
+        "dayjs": "^1.10.7",
+        "prettier": "^2.4.1",
+        "rollup": "^2.56.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-typescript": "^1.0.1",
+        "rollup-plugin-vue": "^6.0.0",
+        "shelljs": "^0.8.4",
+        "tslib": "^2.3.1",
+        "typescript": "^4.4.3",
+        "vue": "^3.2.26"
+    },
+    "dependencies": {
+        "clipboard": "^2.0.8"
+    }
+}

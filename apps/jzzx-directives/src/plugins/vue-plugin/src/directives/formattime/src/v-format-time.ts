@@ -17,7 +17,7 @@ export const VFormatTimeDirective = (app: App) => {
       formatTimeMounted(el, binding)
     },
     [hooks.updated](el: HTMLElement, binding: any) {
-      console.log("时间数据发生动态改变~");
+      console.log('时间数据发生动态改变~')
     }
   })
 }

@@ -1,5 +1,5 @@
 const DEFAULT_PLUGIN_OPTIONS = {
-  directive: 'permission',
+  directive: 'permission'
 }
 
 export { DEFAULT_PLUGIN_OPTIONS }

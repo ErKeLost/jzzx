@@ -15,7 +15,9 @@ buildFn(target)
 // done 并行
 async function buildFn(target) {
   // 采用 rollup打包  -c命令 --environment TARGET: color
-  await execa('rollup', ['-cw', '--environment', `TARGET:${target}`], { stdio: 'inherit' })
+  await execa('rollup', ['-cw', '--environment', `TARGET:${target}`], {
+    stdio: 'inherit'
+  })
   // 当子进程打包的信息 共享给 父进程
 }
 

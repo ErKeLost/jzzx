@@ -1,15 +1,18 @@
 # 2022-2-12
+
 # jzzx-cli @ 1.0.0beta1.0.5
-需要优化点  
-1. addstore 命令判断当前是否已经生成mutation-types文件 如果生成 就不再创建  防止每次创建新的文件夹报错
+
+需要优化点
+
+1. addstore 命令判断当前是否已经生成 mutation-types 文件 如果生成 就不再创建 防止每次创建新的文件夹报错
 2. 优化所有指令封装函数
 3. 新增指令
 
-# jzzx-directive 新增 1.0.0版本 指令库
+# jzzx-directive 新增 1.0.0 版本 指令库
 
-# jzzx-utils 新增1.0.0版本 工具库
+# jzzx-utils 新增 1.0.0 版本 工具库
 
-# jzzx-shared 新增 1.0.0版本 共享库
+# jzzx-shared 新增 1.0.0 版本 共享库
 
 # Turborepo starter with pnpm
 

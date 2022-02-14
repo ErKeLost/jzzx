@@ -3,4 +3,6 @@ export const PKG = require('../../package.json')
 export const JZZX_VERSION = PKG.version
 export const JZZX_NAME = PKG.name
 export const VALUE_ONLINE = `\n ██      ██   █████╗   ██║        ██║   ██╗   ██████╗        ██████╗   ███╗   ██╗  ██║        ████████╗  ███╗   ██╗   ██████╗\n ╚██    ██   ██╔══██╗  ██║        ██║   ██║  ███╔══██╗      ██╔═══██╗  ████╗  ██║  ██║        ╚══██╔══╝  ████╗  ██║  ███╔══██╗\n  ╚██  ██    ███████║  ██║        ██║   ██║  ████████╝      ██║   ██║  ██╔██╗ ██║  ██║           ██║     ██╔██╗ ██║  ████████╝\n   ╚████     ██╔══██║  ██╚═════╗  ██║   ██║  ███╚═══╗       ██║   ██║  ██║╚██╗██║  ██╚═════╗     ██╚══╗  ██║╚██╗██║  ███╚═══╗\n    ╚██      ██║  ██║  ████████║  ╚██████╔╝   ██████║       ╚██████╔╝  ██║ ╚████║  ████████║  ████████║  ██║ ╚████║   ██████║\n     ╚╝      ╚═╝  ╚═╝  ╚═══════╝   ╚═════╝    ╚═════╝        ╚═════╝   ╚═╝  ╚═══╝  ╚═══════╝  ╚═══════╝  ╚═╝  ╚═══╝   ╚═════╝`
-export const VERSION = `\n\t\t\t\t\tPublished${PKG.version}Build @ Value Online.com\n\t\t\t\t\tBuild date: ${new Date().getFullYear()}-VALUE ONLINE`
+export const VERSION = `\n\t\t\t\t\tPublished${
+  PKG.version
+}Build @ Value Online.com\n\t\t\t\t\tBuild date: ${new Date().getFullYear()}-VALUE ONLINE`

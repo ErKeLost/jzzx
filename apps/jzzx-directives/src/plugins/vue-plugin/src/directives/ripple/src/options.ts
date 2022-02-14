@@ -46,13 +46,13 @@ interface IRippleDirectiveOptions {
    */
   delayTime: number
   /**
- * 禁止 水波
- *
- * @note
- * 类似于 debounceTime
- * @default
- * 75
- */
+   * 禁止 水波
+   *
+   * @note
+   * 类似于 debounceTime
+   * @default
+   * 75
+   */
   disabled: boolean
 }
 

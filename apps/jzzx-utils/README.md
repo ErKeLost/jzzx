@@ -14,12 +14,8 @@ npm install adny
 
 - 组件使用
 
-
 - 局部注册
 
-
 - 组件使用
-
-
 
 ## API

@@ -31,3 +31,9 @@ export const bgGray = (res: unknown) => console.log(bgGrayColor(res));
 export const bgBlue = (res: unknown) => console.log(bgBlueColor(res));
 export const bgMagenta = (res: unknown) => console.log(bgMagentaColor(res));
 export const bgCyan = (res: unknown) => console.log(bgCyanColor(res));
+
+export const complete = (name, dest, type, description) => {
+  green(`\n ${description}`);
+  cyan(`\n To get started with into "${name}.${type}"`);
+  console.log(`\n cd ${dest} \n`);
+};

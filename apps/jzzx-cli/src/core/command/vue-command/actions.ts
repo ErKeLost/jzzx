@@ -1,22 +1,22 @@
-import { promisify } from "util";
 import {
-  compile,
   writeToFile,
   createDirSync,
-  ejsCompile
+  ejsCompile,
 } from "../../../utils/compiler-template";
-import { green } from 'chalk'
+import { complete } from "../../../utils/log";
 import { resolve } from "path";
-import { chooseFileType } from "../../../utils/pormpt";
+import { chooseFileType, chooseComponentFile } from "../../../utils/pormpt";
 import { prompt } from "inquirer";
-import ora from 'ora'
+import ora from "ora";
 
 const handleEjsToFile = async (name, dest, template, filename) => {
   // 1.获取模块引擎的路径
   const templatePath = resolve(__dirname, template);
 
-  const result = await ejsCompile(templatePath, {name, lowerName: name.toLowerCase()});
-  
+  const result = await ejsCompile(templatePath, {
+    name,
+    lowerName: name.toLowerCase(),
+  });
 
   // // 2.写入文件中
   // // 判断文件不存在,那么就创建文件
@@ -25,12 +25,14 @@ const handleEjsToFile = async (name, dest, template, filename) => {
   writeToFile(targetPath, result);
 };
 const addComponentAction = async (name, dest) => {
+  const res = await prompt([chooseComponentFile]);
   handleEjsToFile(
     name,
     dest,
     "../../../template/vue-component.ejs",
     `${name}.vue`
   );
+  complete(name, dest, `${res.componentType}`, "component create succeeded");
 };
 
 const addPageAction = async (name, dest) => {
@@ -49,15 +51,24 @@ const addPageAction = async (name, dest) => {
     `${name}.vue`
   );
   // spinner.succeed();
-  console.log(green('\n file created completed!'))
-  console.log('\n To get started')
-  console.log(`\n    cd ${name} \n`)
+  complete(name, dest, res.fileType, "page create succeeded");
 };
 
 const addStoreAction = async (name, dest) => {
   const res = await prompt([chooseFileType]);
-  handleEjsToFile(name, dest, '../../../template/vuex-store.js.ejs', `${name}.${res.fileType}`)
-  handleEjsToFile(name, dest, '../../../template/vuex-types.js.ejs', `mutation-types.${res.fileType}`)
+  handleEjsToFile(
+    name,
+    dest,
+    "../../../template/vuex-store.js.ejs",
+    `${name}.${res.fileType}`
+  );
+  handleEjsToFile(
+    name,
+    dest,
+    "../../../template/vuex-types.js.ejs",
+    `mutation-types.${res.fileType}`
+  );
+  complete(name, dest, res.fileType, "store create succeeded");
 };
 
 export { addComponentAction, addPageAction, addStoreAction };

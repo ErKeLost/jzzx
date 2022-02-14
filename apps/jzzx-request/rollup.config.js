@@ -15,17 +15,17 @@ export default {
     {
       name,
       file: 'dist/jzzx-request.umd.min.js',
-      format: 'umd',
+      format: 'umd'
     },
     {
       name,
       file: 'dist/jzzx-request.es.min.js',
-      format: 'es',
+      format: 'es'
     },
     {
       name,
       file: 'dist/jzzx-request.cjs.min.js',
-      format: 'cjs',
+      format: 'cjs'
     }
   ],
   plugins: [

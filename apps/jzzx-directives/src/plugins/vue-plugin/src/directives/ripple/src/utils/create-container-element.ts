@@ -1,9 +1,4 @@
-export const createContainer = ({
-  borderTopLeftRadius,
-  borderTopRightRadius,
-  borderBottomLeftRadius,
-  borderBottomRightRadius
-}: CSSStyleDeclaration): HTMLElement => {
+export const createContainer = ({ borderTopLeftRadius, borderTopRightRadius, borderBottomLeftRadius, borderBottomRightRadius }: CSSStyleDeclaration): HTMLElement => {
   const rippleContainer = document.createElement('div')
   rippleContainer.style.top = '0'
   rippleContainer.style.left = '0'

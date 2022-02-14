@@ -24,4 +24,4 @@ const debounce = (
     }
   })
 }
-export default debounce 
+export default debounce

@@ -1,34 +1,34 @@
 export class Cache {
-  private storage;
+  private storage
   constructor(local = true) {
-    this.storage = local ? localStorage : sessionStorage;
+    this.storage = local ? localStorage : sessionStorage
   }
   setItem(key: string, value: any) {
-    this.storage.setItem(key, JSON.stringify(value));
+    this.storage.setItem(key, JSON.stringify(value))
   }
   getItem(key: string) {
-    let value = this.storage.getItem(key);
+    let value = this.storage.getItem(key)
     if (value) {
-      return JSON.parse(value);
+      return JSON.parse(value)
     }
   }
   removeItem(key: string) {
-    this.storage.removeItem(key);
+    this.storage.removeItem(key)
   }
   clear(key: string) {
-    this.storage.clear();
+    this.storage.clear()
   }
 
   key(index: number) {
-    return this.storage.key(index);
+    return this.storage.key(index)
   }
 
   length() {
-    return this.storage.length;
+    return this.storage.length
   }
 }
 
-const localCache = new Cache();
-const sessionCache = new Cache();
+const localCache = new Cache()
+const sessionCache = new Cache()
 
-export { localCache, sessionCache };
+export { localCache, sessionCache }

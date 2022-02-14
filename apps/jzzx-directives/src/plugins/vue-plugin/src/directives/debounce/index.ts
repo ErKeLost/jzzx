@@ -1,1 +1,1 @@
-export { VDebounce, VDebounceDirective } from './src/v-debounce' 
+export { VDebounce, VDebounceDirective } from './src/v-debounce'

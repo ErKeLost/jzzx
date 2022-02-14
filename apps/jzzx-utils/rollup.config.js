@@ -15,17 +15,17 @@ export default {
     {
       name,
       file: 'dist/utils.umd.min.js',
-      format: 'umd',
+      format: 'umd'
     },
     {
       name,
       file: 'dist/utils.es.min.js',
-      format: 'es',
+      format: 'es'
     },
     {
       name,
       file: 'dist/utils.cjs.min.js',
-      format: 'cjs',
+      format: 'cjs'
     }
   ],
   plugins: [

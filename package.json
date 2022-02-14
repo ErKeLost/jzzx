@@ -11,10 +11,13 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prettier": "prettier --write *",
+    "prettier": "prettier --write .",
     "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "eslint": "^8.9.0",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },

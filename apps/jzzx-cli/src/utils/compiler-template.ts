@@ -1,37 +1,37 @@
-import { renderFile } from "ejs";
-import path, { resolve, dirname } from "path";
+import { renderFile } from 'ejs'
+import path, { resolve, dirname } from 'path'
 // import path from "path";
 // const path = require("path");
-import fs, { promises, existsSync, mkdirSync } from "fs";
+import fs, { promises, existsSync, mkdirSync } from 'fs'
 const ejsCompile = (templatePath, data = {}, options = {}) => {
   return new Promise((resolve, reject) => {
     renderFile(templatePath, { data }, options, (err, str) => {
       if (err) {
-        reject(err);
-        return;
+        reject(err)
+        return
       }
-      resolve(str);
-    });
-  });
-};
+      resolve(str)
+    })
+  })
+}
 const compile = (templateName, data) => {
-  const templatePosition = `../template/${templateName}`;
-  const templatePath = resolve(__dirname, templatePosition);
+  const templatePosition = `../template/${templateName}`
+  const templatePath = resolve(__dirname, templatePosition)
   return new Promise((resolve, reject) => {
     renderFile(templatePath, { data }, {}, (err, res) => {
       if (err) {
-        console.log(err);
-        reject(err);
-        return;
+        console.log(err)
+        reject(err)
+        return
       }
-      resolve(res);
-    });
-  });
-};
+      resolve(res)
+    })
+  })
+}
 
 const createDirSync = (pathName): any => {
   if (existsSync(pathName)) {
-    return true;
+    return true
   } else {
     // TODO 递归
     // if (fs.existsSync(path.dirname(path))) {
@@ -42,21 +42,21 @@ const createDirSync = (pathName): any => {
     //   }
     // }
     if (createDirSync(dirname(pathName))) {
-      mkdirSync(pathName);
-      return true;
+      mkdirSync(pathName)
+      return true
     }
   }
-};
+}
 
 const writeToFile = (path, content) => {
   // TODO 判断path是否存在 不存在 就要创建文件夹
-  return promises.writeFile(path, content);
-};
+  return promises.writeFile(path, content)
+}
 
 const handleEjsToFile = async (name, dest, template, filename) => {
   // 1.获取模块引擎的路径
-  const templatePath = resolve(__dirname, template);
-  console.log(templatePath);
+  const templatePath = resolve(__dirname, template)
+  console.log(templatePath)
 
   // const result = await compile(templatePath, {name, lowerName: name.toLowerCase()});
 
@@ -65,6 +65,6 @@ const handleEjsToFile = async (name, dest, template, filename) => {
   // createDirSync(dest);
   // const targetPath = resolve(dest, filename);
   // writeToFile(targetPath, result);
-};
+}
 
-export { ejsCompile, compile, writeToFile, createDirSync, handleEjsToFile };
+export { ejsCompile, compile, writeToFile, createDirSync, handleEjsToFile }

@@ -8,6 +8,6 @@ export * from './utils'
 export * from './types'
 export * from './storage'
 export * from './dom'
-export * from "./shared";
+export * from './shared'
 export * from './share-utils'
-export { Tween } from "./animation/tween";
+export { Tween } from './animation/tween'

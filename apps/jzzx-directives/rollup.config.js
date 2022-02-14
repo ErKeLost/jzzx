@@ -1,30 +1,30 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import typescript from "rollup-plugin-typescript";
-import { terser } from "rollup-plugin-terser";
-import pkg from "./package.json";
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import typescript from 'rollup-plugin-typescript'
+import { terser } from 'rollup-plugin-terser'
+import pkg from './package.json'
 
 export default {
-  input: "src/plugins/vue-plugin/index.ts", // 打包入口
+  input: 'src/plugins/vue-plugin/index.ts', // 打包入口
   output: [
     {
       // 打包出口
       file: pkg.browser, // 最终打包出来的文件路径和文件名，这里是在package.json的browser: 'dist/index.js'字段中配置的
-      format: "umd", // umd是兼容amd/cjs/iife的通用打包格式，适合浏览器
-      name: "file"
+      format: 'umd', // umd是兼容amd/cjs/iife的通用打包格式，适合浏览器
+      name: 'file'
     },
     {
-      file: "dist/index.common.js",
-      format: "cjs"
+      file: 'dist/index.common.js',
+      format: 'cjs'
     },
     {
-      file: "dist/index.vite.js",
-      format: "es"
+      file: 'dist/index.vite.js',
+      format: 'es'
     },
     {
-      file: "dist/index.browser.js",
-      format: "iife",
-      name: "adnyutils"
+      file: 'dist/index.browser.js',
+      format: 'iife',
+      name: 'adnyutils'
     }
   ],
   plugins: [
@@ -35,4 +35,4 @@ export default {
     terser() // 压缩
   ],
   external: ['vue']
-};
+}

@@ -8,7 +8,7 @@ export class NumberUtils {
    * @param c
    */
   static range(a: number, b: number, c: number): number {
-    return Math.min(Math.max(a, b), c);
+    return Math.min(Math.max(a, b), c)
   }
 
   static clamp(value: number, min: number, max: number) {
@@ -22,6 +22,6 @@ export class NumberUtils {
       ? max
       : value > min
       ? min
-      : value;
+      : value
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "jzzx-components",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "dist/jzzx-components.umd.js",
   "module": "dist/jzzx-components.es.js",
   "scripts": {

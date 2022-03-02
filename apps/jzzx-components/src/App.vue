@@ -5,7 +5,6 @@ import Statistic from './components/statistic/statistic'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <statistic></statistic>
 </template>
 

@@ -157,14 +157,14 @@ importers:
   apps/jzzx-playground:
     specifiers:
       '@vitejs/plugin-vue': ^1.10.2
-      '@vue/repl': ^0.4.8
+      '@vue/repl': ^1.0.0
       file-saver: ^2.0.5
       jszip: ^3.6.0
       naive-ui: ^2.25.5
       vite: ^2.7.1
       vue: 3.2.31
     dependencies:
-      '@vue/repl': 0.4.9_vue@3.2.31
+      '@vue/repl': 1.0.0_vue@3.2.31
       file-saver: 2.0.5
       jszip: 3.7.1
       vue: 3.2.31
@@ -2387,14 +2387,6 @@ packages:
     resolution: {integrity: sha512-HVr0l211gbhpEKYr2hYe7hRsV91uIVGFYNHj73njbARVGHQvIojkImKMaZNDdoDZOIkMsBc9a1sMqR+WZwfSCw==}
     dependencies:
       '@vue/shared': 3.2.31
-
-  /@vue/repl/0.4.9_vue@3.2.31:
-    resolution: {integrity: sha512-NC1DrrtmeiEgG9eel+B72RVezXJ+lB0rubPhyYexth+fgJnTjtbc77e+OMSirBR0qAyoFeaBkMKWohAlDKxulg==}
-    peerDependencies:
-      vue: ^3.2.13
-    dependencies:
-      vue: 3.2.31
-    dev: false
 
   /@vue/repl/1.0.0_vue@3.2.31:
     resolution: {integrity: sha512-cDcQuWKZuA0Y0JYEpiQS/ZAEGP/RrfkcK+zKm5H8tUjfD8XIxYHY+sQGoY6FSkz/gAOQJocrsaPgt7ddKL0inQ==}

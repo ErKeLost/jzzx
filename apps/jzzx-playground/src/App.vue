@@ -1,26 +1,26 @@
 <script setup lang="ts">
 import Header from './Header.vue'
-import { Repl, ReplStore } from '@vue/repl'
+import { ReplStore } from './store'
 import { watchEffect } from 'vue'
+import { Repl } from '@vue/repl'
 
 const setVH = () => {
   document.documentElement.style.setProperty('--vh', window.innerHeight + `px`)
 }
+
 window.addEventListener('resize', setVH)
 setVH()
 
 const store = new ReplStore({
   serializedState: location.hash.slice(1),
-  defaultVueRuntimeURL: import.meta.env.PROD
-    ? `${location.origin}/vue.runtime.esm-browser.js`
-    : `${location.origin}/src/vue-dev-proxy`
+  defaultVueRuntimeURL: import.meta.env.PROD ? undefined : `${location.origin}/src/vue-dev-proxy`,
 })
 
 // enable experimental features
 const sfcOptions = {
   script: {
-    reactivityTransform: true
-  }
+    reactivityTransform: true,
+  },
 }
 
 // persist state
@@ -33,24 +33,28 @@ watchEffect(() => history.replaceState({}, '', store.serialize()))
     @keydown.ctrl.s.prevent
     @keydown.meta.s.prevent
     :store="store"
-    :showCompileOutput="true"
-    :autoResize="true"
-    :sfcOptions="sfcOptions"
-    :clearConsole="false"
+    :show-compile-output="true"
+    :auto-resize="true"
+    :sfc-options="sfcOptions"
+    :clear-console="false"
   />
 </template>
 
 <style>
 body {
   font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
   margin: 0;
+
   --base: #444;
   --nav-height: 50px;
 }
 
 .vue-repl {
+  --color-branding: #5580f8 !important;
+  --color-branding-dark: #5580f8 !important;
+
   height: calc(var(--vh) - var(--nav-height));
 }
 

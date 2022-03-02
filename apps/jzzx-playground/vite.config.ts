@@ -7,7 +7,8 @@ import execa from 'execa'
 const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7)
 
 export default defineConfig({
-  plugins: [vue(), copyVuePlugin()],
+  // plugins: [vue(), copyVuePlugin()],
+  plugins: [vue()],
   define: {
     __COMMIT__: JSON.stringify(commit),
     __VUE_PROD_DEVTOOLS__: JSON.stringify(true)

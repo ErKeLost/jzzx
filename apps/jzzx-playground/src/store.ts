@@ -9,10 +9,16 @@ const defaultMainFile = 'App.vue'
 const varletReplPlugin = 'varlet-repl-plugin.js'
 const varletImports = {
   '@varlet/ui': 'https://unpkg.com/@varlet/ui@1.26.2/es/varlet.esm.js',
-  '@varlet/touch-emulator': 'https://unpkg.com/@varlet/touch-emulator@1.26.2/index.js',
+  '@varlet/touch-emulator':
+    'https://unpkg.com/@varlet/touch-emulator@1.26.2/index.js'
 }
 const varletCss = 'https://unpkg.com/@varlet/ui@1.26.2/es/style.css'
-
+const naiveuiImports = {
+  'naive-ui': 'https://unpkg.com/naive-ui@2.26.0/es/index.js'
+}
+const elementplusImports = {
+  'element-plus': 'https://unpkg.com/element-plus@2.0.4/es/defaults.mjs'
+}
 const welcomeCode = `\
 <script setup lang='ts'>
 import { ref } from 'vue'
@@ -21,15 +27,55 @@ import { installVarletUI } from './${varletReplPlugin}'
 installVarletUI()
 
 const msg = ref('Hello Varlet!')
+const active = ref('选项1')
+const date = ref('2022-03-10')
 </script>
-
 <template>
   <var-button type="primary">{{ msg }}</var-button>
+  <var-date-picker v-model="date" />
+  <var-tabs
+  elevation
+  color="#2979ff"
+  active-color="#fff"
+  inactive-color="hsla(0, 0%, 100%, .6)"
+  v-model:active="active"
+>
+  <var-tab>选项1</var-tab>
+  <var-tab>选项2</var-tab>
+  <var-tab>选项3</var-tab>
+</var-tabs>
+
+<var-tabs-items v-model:active="active">
+  <var-tab-item>
+    呜啦啦啦火车笛，随着奔腾的马蹄。
+    小妹妹吹着口琴，夕阳下美了剪影。
+    我用子弹写日记，介绍完了风景。
+    接下来换介绍我自己。
+    我虽然是个牛仔，在酒吧只点牛奶。
+    为什么不喝啤酒，因为啤酒伤身体。
+  </var-tab-item>
+  <var-tab-item>
+    很多人不长眼睛，嚣张都靠武器。
+    赤手空拳就缩成蚂蚁。
+    不用麻烦了，不用麻烦了。
+    不用麻烦，不用麻烦了，不用麻烦了。
+  </var-tab-item>
+  <var-tab-item>
+    你们一起上，我在赶时间。
+    每天决斗观众都累了，英雄也累了。
+    不用麻烦了，不用麻烦了。
+    副歌不长你们有几个，一起上好了。
+    正义呼唤我，美女需要我。
+    牛仔很忙的。
+  </var-tab-item>
+</var-tabs-items>
 </template>
 `
 
 const varletReplPluginCode = `\
 import VarletUI, { Context } from '@varlet/ui'
+// import { installer }  from 'element-plus'
+// import Naive from 'naive-ui'
 import '@varlet/touch-emulator'
 import { getCurrentInstance } from 'vue'
 
@@ -40,6 +86,8 @@ await appendStyle()
 export function installVarletUI() {
   const instance = getCurrentInstance()
   instance.appContext.app.use(VarletUI)
+  // instance.appContext.app.use(installer)
+  // instance.appContext.app.use(Naive)
 }
 
 export function appendStyle() {
@@ -50,6 +98,12 @@ export function appendStyle() {
     link.onload = resolve
     link.onerror = reject
     document.body.appendChild(link)
+    const w = document.createElement('link')
+    w.rel = 'stylesheet'
+    w.href = 'https://unpkg.com/element-plus/dist/index.css'
+    w.onload = resolve
+    w.onerror = reject
+    document.body.appendChild(w)
   })
 }
 `
@@ -71,7 +125,7 @@ export class ReplStore implements Store {
     serializedState = '',
     defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     showOutput = false,
-    outputMode = 'preview',
+    outputMode = 'preview'
   }: {
     serializedState?: string
     showOutput?: boolean
@@ -89,7 +143,7 @@ export class ReplStore implements Store {
       }
     } else {
       files = {
-        [defaultMainFile]: new File(defaultMainFile, welcomeCode),
+        [defaultMainFile]: new File(defaultMainFile, welcomeCode)
       }
     }
 
@@ -106,13 +160,17 @@ export class ReplStore implements Store {
       files,
       activeFile: files[mainFile],
       errors: [],
-      vueRuntimeURL: this.defaultVueRuntimeURL,
+      vueRuntimeURL: this.defaultVueRuntimeURL
     })
 
     this.initImportMap()
 
     // varlet inject
-    this.state.files[varletReplPlugin] = new File(varletReplPlugin, varletReplPluginCode, !import.meta.env.DEV)
+    this.state.files[varletReplPlugin] = new File(
+      varletReplPlugin,
+      varletReplPluginCode,
+      !import.meta.env.DEV
+    )
 
     watchEffect(() => compileFile(this, this.state.activeFile))
 
@@ -129,14 +187,17 @@ export class ReplStore implements Store {
   }
 
   addFile(fileOrFilename: string | File) {
-    const file = typeof fileOrFilename === 'string' ? new File(fileOrFilename) : fileOrFilename
+    const file =
+      typeof fileOrFilename === 'string'
+        ? new File(fileOrFilename)
+        : fileOrFilename
     this.state.files[file.filename] = file
     if (!file.hidden) this.setActive(file.filename)
   }
 
   deleteFile(filename: string) {
     if (filename === varletReplPlugin) {
-      Snackbar.warning('Varlet depends on this file')
+      // Snackbar.warning('Varlet depends on this file')
       return
     }
 
@@ -191,7 +252,9 @@ export class ReplStore implements Store {
             imports: {
               vue: this.defaultVueRuntimeURL,
               ...varletImports,
-            },
+              ...naiveuiImports,
+              ...elementplusImports
+            }
           },
           null,
           2
@@ -213,7 +276,9 @@ export class ReplStore implements Store {
     try {
       return JSON.parse(this.state.files['import-map.json'].code)
     } catch (e) {
-      this.state.errors = [`Syntax error in import-map.json: ${(e as Error).message}`]
+      this.state.errors = [
+        `Syntax error in import-map.json: ${(e as Error).message}`
+      ]
       return {}
     }
   }

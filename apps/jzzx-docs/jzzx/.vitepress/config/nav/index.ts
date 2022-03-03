@@ -8,6 +8,7 @@ export const nav = [
           { text: '快速开始', link: '' },
           { text: '安装', link: '' },
           { text: '更新日志', link: '/log/docs/index'},
+          { text: 'Vue3源码全解析', link: '/vue/source-code/index'},
           { text: '高级JavaScript', link: '/javascript/this/index'}
         ]
       }

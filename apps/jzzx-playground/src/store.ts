@@ -17,7 +17,7 @@ const naiveuiImports = {
   'naive-ui': 'https://unpkg.com/naive-ui@2.26.0/es/index.js'
 }
 const elementplusImports = {
-  'element-plus': 'https://unpkg.com/element-plus@2.0.4/es/defaults.mjs'
+  'element-plus': 'https://unpkg.com/element-plus'
 }
 const welcomeCode = `\
 <script setup lang='ts'>
@@ -74,19 +74,19 @@ const date = ref('2022-03-10')
 
 const varletReplPluginCode = `\
 import VarletUI, { Context } from '@varlet/ui'
-// import { installer }  from 'element-plus'
+import * as a from 'element-plus'
 // import Naive from 'naive-ui'
 import '@varlet/touch-emulator'
 import { getCurrentInstance } from 'vue'
 
 Context.touchmoveForbid = false
-
+console.log(all)
 await appendStyle()
 
 export function installVarletUI() {
   const instance = getCurrentInstance()
   instance.appContext.app.use(VarletUI)
-  // instance.appContext.app.use(installer)
+  instance.appContext.app.use(ElementPlus)
   // instance.appContext.app.use(Naive)
 }
 

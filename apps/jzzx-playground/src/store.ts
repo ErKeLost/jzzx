@@ -13,11 +13,14 @@ const varletImports = {
     'https://unpkg.com/@varlet/touch-emulator@1.26.2/index.js'
 }
 const varletCss = 'https://unpkg.com/@varlet/ui@1.26.2/es/style.css'
-const naiveuiImports = {
-  'naive-ui': 'https://unpkg.com/naive-ui@2.26.0/es/index.js'
+const devuiImports = {
+  'vue-devui': 'https://unpkg.com/vue-devui@1.0.0-beta.17/vue-devui.es.js'
+}
+const antdesignImports = {
+  'ant-design-vue': 'https://unpkg.com/ant-design-vue@3.0.0-beta.13/es/index.js'
 }
 const elementplusImports = {
-  'element-plus': 'https://unpkg.com/element-plus'
+  'element-plus': 'https://unpkg.com/element-plus@2.0.4/dist/index.full.min.mjs'
 }
 const welcomeCode = `\
 <script setup lang='ts'>
@@ -31,6 +34,9 @@ const active = ref('选项1')
 const date = ref('2022-03-10')
 </script>
 <template>
+  <d-button>我是devui</d-button>
+  <el-button>我是element-plus</el-button>
+  <el-image src="https://w.wallhaven.cc/full/8o/wallhaven-8o6rmo.jpg"></el-image>
   <var-button type="primary">{{ msg }}</var-button>
   <var-date-picker v-model="date" />
   <var-tabs
@@ -74,20 +80,21 @@ const date = ref('2022-03-10')
 
 const varletReplPluginCode = `\
 import VarletUI, { Context } from '@varlet/ui'
-import * as a from 'element-plus'
-// import Naive from 'naive-ui'
+import ElementPlusUI from 'element-plus'
+import DevUI from 'vue-devui'
+// import Antd from 'ant-design-vue';
 import '@varlet/touch-emulator'
 import { getCurrentInstance } from 'vue'
-
+// console.log(Antd)
 Context.touchmoveForbid = false
-console.log(all)
 await appendStyle()
 
 export function installVarletUI() {
   const instance = getCurrentInstance()
   instance.appContext.app.use(VarletUI)
-  instance.appContext.app.use(ElementPlus)
-  // instance.appContext.app.use(Naive)
+  instance.appContext.app.use(DevUI)
+  instance.appContext.app.use(ElementPlusUI)
+  // instance.appContext.app.use(Antd)
 }
 
 export function appendStyle() {
@@ -100,10 +107,22 @@ export function appendStyle() {
     document.body.appendChild(link)
     const w = document.createElement('link')
     w.rel = 'stylesheet'
-    w.href = 'https://unpkg.com/element-plus/dist/index.css'
+    w.href = 'https://unpkg.com/element-plus@2.0.4/dist/index.css'
     w.onload = resolve
     w.onerror = reject
     document.body.appendChild(w)
+    const d = document.createElement('link')
+    d.rel = 'stylesheet'
+    d.href = 'https://unpkg.com/vue-devui@1.0.0-beta.14/style.css'
+    d.onload = resolve
+    d.onerror = reject
+    document.body.appendChild(d)
+    const a = document.createElement('link')
+    a.rel = 'stylesheet'
+    a.href = 'https://unpkg.com/ant-design-vue@3.0.0-beta.13/dist/antd.css'
+    a.onload = resolve
+    a.onerror = reject
+    document.body.appendChild(a)
   })
 }
 `
@@ -252,7 +271,8 @@ export class ReplStore implements Store {
             imports: {
               vue: this.defaultVueRuntimeURL,
               ...varletImports,
-              ...naiveuiImports,
+              ...devuiImports,
+              // ...antdesignImports,
               ...elementplusImports
             }
           },
@@ -274,6 +294,7 @@ export class ReplStore implements Store {
 
   getImportMap() {
     try {
+      console.log(JSON.parse(this.state.files['import-map.json'].code));
       return JSON.parse(this.state.files['import-map.json'].code)
     } catch (e) {
       this.state.errors = [

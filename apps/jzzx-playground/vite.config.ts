@@ -8,7 +8,11 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   // plugins: [vue(), copyVuePlugin()],
+  base: './',
   plugins: [vue()],
+  server: {
+    host: '127.0.0.1'
+  },
   define: {
     __COMMIT__: JSON.stringify('commit'),
     __VUE_PROD_DEVTOOLS__: JSON.stringify(true)

@@ -42,7 +42,7 @@ export function useActiveAnchor(
   container: Ref<HTMLElement>,
   bg: Ref<HTMLElement>
 ) {
-  const isOutlineEnabled = useMediaQuery('(min-width: 1150px)')
+  const isOutlineEnabled = useMediaQuery('(min-width: 1280px)')
   const onScroll = throttleAndDebounce(setActiveLink, 100)
 
   function setActiveLink(): void {

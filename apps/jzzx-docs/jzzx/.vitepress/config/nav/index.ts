@@ -1,28 +1,28 @@
 export const nav = [
   {
     text: '文档',
-    // activeMatch: `^/(guide|examples)/`,
+    activeMatch: `^/(guide|examples)/`,
     items: [
       {
         items: [
           { text: '快速开始', link: '' },
           { text: '安装', link: '' },
-          { text: '更新日志', link: '/log/docs/index'},
-          { text: 'Vue3源码全解析', link: '/vue/source-code/index'},
-          { text: '高级JavaScript', link: '/javascript/this/index'}
+          { text: '更新日志', link: '/log/docs/index' },
+          { text: 'Vue3源码全解析', link: '/vue/source-code/index' },
+          { text: '高级JavaScript', link: '/javascript/this/index' }
         ]
       }
     ]
   },
   {
     text: '脚手架',
-    // activeMatch: `^/(cli|examples)/`,
+    activeMatch: `^/(cli|examples)/`,
     link: '/cli/install/index'
   },
-  // {
-  //   text: 'Playground',
-  //   link: 'https://sfc.vuejs.org'
-  // },
+  {
+    text: 'Playground',
+    link: 'https://sfc.vuejs.org'
+  },
   {
     text: 'Vue规范',
     activeMatch: `^/vue/`,
@@ -105,10 +105,10 @@ export const nav = [
     text: '组件库',
     activeMatch: `^/community/`,
     items: [
-      { 
+      {
         text: 'Element-ui',
         items: [
-          { text: 'stock', link: '/community/team' },
+          { text: 'stock', link: '/community/team' }
           // {
           //   text: 'Contribution Guide',
           //   link: '/community/contribution-guide'
@@ -120,7 +120,6 @@ export const nav = [
   },
   {
     text: '项目架构规范',
-    link: '/code-specification/write-specification/javascript/index'
-  },
-  { text: '实时编辑', link: '/examples/' },
+    link: '/code-specification/build-specification/rollup/index'
+  }
 ]

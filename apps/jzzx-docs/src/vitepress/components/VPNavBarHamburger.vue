@@ -24,7 +24,7 @@ const hasContent = computed(() => {
   height: var(--vt-nav-height);
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 768px) {
   .VPNavBarHamburger {
     display: none;
   }

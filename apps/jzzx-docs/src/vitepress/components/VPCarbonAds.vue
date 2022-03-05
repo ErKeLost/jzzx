@@ -6,7 +6,7 @@ import { ref, onMounted, watch } from 'vue'
 const { theme } = useData()
 const carbonOptions = theme.value.carbonAds
 const container = ref()
-const isWide = useMediaQuery('(min-width: 1150px)')
+const isWide = useMediaQuery('(min-width: 1280px)')
 
 let hasInitalized = false
 

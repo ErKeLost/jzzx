@@ -49,7 +49,7 @@ defineProps<{
   }
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1280px) {
   .VPNavBar {
     padding: 0 32px;
   }

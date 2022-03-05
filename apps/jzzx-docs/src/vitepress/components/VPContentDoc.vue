@@ -128,7 +128,7 @@ const pageClass = computed(() => {
   }
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1280px) {
   .VPContentDoc {
     padding: 64px 0 96px 64px;
   }

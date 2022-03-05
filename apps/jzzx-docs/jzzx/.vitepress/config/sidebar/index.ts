@@ -157,17 +157,6 @@ export const sidebar = {
   //     ]
   //   }
   // ],
-  '/vue/vuex/': [
-    {
-      text: '基础',
-      items: [
-        { text: 'Vue2使用Vuex', link: '/vue/vuex/index' },
-        { text: 'Vue3使用Vuex', link: '/vue/vuex/vue2' },
-        { text: 'Vue2使用Pinia', link: '/vue/pinia/vue2' },
-        { text: 'Vue3使用Pinia', link: '/vue/pinia/vue3' }
-      ]
-    }
-  ],
   '/javascript': [
     {
       text: '设计模式',
@@ -200,8 +189,17 @@ export const sidebar = {
   '/vue/core': [
     {
       text: '教程',
+      items: [{ text: 'composition Api', link: '/vue/core/learn/index' }]
+    }
+  ],
+  '/vue/vuex/': [
+    {
+      text: '基础',
       items: [
-        { text: 'composition Api', link: '/vue/core/learn/index' },
+        { text: 'Vue2使用Vuex', link: '/vue/vuex/index' },
+        { text: 'Vue3使用Vuex', link: '/vue/vuex/vue2' },
+        { text: 'Vue2使用Pinia', link: '/vue/pinia/vue2' },
+        { text: 'Vue3使用Pinia', link: '/vue/pinia/vue3' }
       ]
     }
   ],
@@ -279,6 +277,10 @@ export const sidebar = {
           link: '/code-specification/structure-specification/code/index'
         },
         {
+          text: 'ES6 - ES12',
+          link: '/code-specification/write-specification/es6/index'
+        },
+        {
           text: 'JavaScript代码规范',
           link: '/code-specification/write-specification/javascript/index'
         },
@@ -294,12 +296,6 @@ export const sidebar = {
         { text: `Vue2项目搭建`, link: '/guide/introduction' },
         { text: 'Vue3 + Ts 项目搭建', link: '/guide/introduction' }
       ]
-    }
-  ],
-  '/examples/': [
-    {
-      text: '基础',
-      items: [{ text: 'hello world', link: '/examples/#hello-world' }]
     }
   ]
 }

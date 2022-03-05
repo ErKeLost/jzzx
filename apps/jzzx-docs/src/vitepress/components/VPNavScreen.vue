@@ -70,7 +70,7 @@ function unlockBodyScroll() {
   transform: translateY(-8px);
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 768px) {
   .VPNavScreen {
     display: none;
   }

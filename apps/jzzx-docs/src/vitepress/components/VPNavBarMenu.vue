@@ -21,7 +21,7 @@ const { config } = useConfig()
   display: none;
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 768px) {
   .VPNavBarMenu {
     display: flex;
   }

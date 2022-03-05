@@ -15,7 +15,7 @@
       价值在线前端 规范 与 生态.
     </p>
     <p class="actions">
-      <a class="get-started" href="/cli/install/index">
+      <a class="get-started" href="/guide/introduction.html">
         现在开始
         <svg
           class="icon"
@@ -29,7 +29,7 @@
           />
         </svg>
       </a>
-      <a class="setup" href="/">安装</a>
+      <a class="setup" href="/guide/quick-start.html">安装</a>
     </p>
   </section>
 

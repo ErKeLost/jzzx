@@ -6,7 +6,7 @@
  */
 
 // for local-linked development
-const deps = ['@vue/theme', '@vueuse/core', 'body-scroll-lock','@vue/repl']
+const deps = ['@vue/theme', '@vueuse/core', 'body-scroll-lock']
 
 /**
  * @type {() => Promise<import('vitepress').UserConfig>}
@@ -14,8 +14,7 @@ const deps = ['@vue/theme', '@vueuse/core', 'body-scroll-lock','@vue/repl']
 module.exports = async () => ({
   vite: {
     ssr: {
-      noExternal: deps,
-      external: ['@vue/repl']
+      noExternal: deps
     },
     optimizeDeps: {
       exclude: deps

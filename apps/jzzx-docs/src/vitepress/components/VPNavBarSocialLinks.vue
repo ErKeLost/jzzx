@@ -20,7 +20,7 @@ const { config } = useConfig()
   margin-right: -10px;
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1280px) {
   .VPNavBarSocialLinks {
     display: flex;
   }

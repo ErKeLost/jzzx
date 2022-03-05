@@ -5,12 +5,10 @@ specifiers:
   '@docsearch/js': ^3.0.0-alpha.41
   '@types/body-scroll-lock': ^2.6.1
   '@types/estree': ^0.0.48
-  '@vue/repl': ^1.0.0
   '@vueuse/core': ^7.3.0
   body-scroll-lock: ^3.1.5
   dynamics.js: ^1.1.5
   gsap: ^3.9.1
-  markdown-it: ^12.3.2
   normalize.css: ^8.0.1
   prettier: ^2.4.1
   shiki: ^0.9.15
@@ -21,12 +19,10 @@ specifiers:
 dependencies:
   '@docsearch/css': 3.0.0-alpha.41
   '@docsearch/js': 3.0.0-alpha.41
-  '@vue/repl': 1.0.0_vue@3.2.26
   '@vueuse/core': 7.3.0_vue@3.2.26
   body-scroll-lock: 3.1.5
   dynamics.js: 1.1.5
   gsap: 3.9.1
-  markdown-it: 12.3.2
   normalize.css: 8.0.1
   shiki: 0.9.15
 
@@ -50,9 +46,6 @@ packages:
     peerDependencies:
       '@algolia/client-search': ^4.9.1
       algoliasearch: ^4.9.1
-    peerDependenciesMeta:
-      '@algolia/client-search':
-        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.2.2
       algoliasearch: 4.10.5
@@ -162,13 +155,6 @@ packages:
       '@types/react': '>= 16.8.0 < 18.0.0'
       react: '>= 16.8.0 < 18.0.0'
       react-dom: '>= 16.8.0 < 18.0.0'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.2.2
       '@algolia/autocomplete-preset-algolia': 1.2.2_algoliasearch@4.10.5
@@ -250,14 +236,6 @@ packages:
       '@vue/shared': 3.2.26
     dev: true
 
-  /@vue/repl/1.0.0_vue@3.2.26:
-    resolution: {integrity: sha512-cDcQuWKZuA0Y0JYEpiQS/ZAEGP/RrfkcK+zKm5H8tUjfD8XIxYHY+sQGoY6FSkz/gAOQJocrsaPgt7ddKL0inQ==}
-    peerDependencies:
-      vue: ^3.2.13
-    dependencies:
-      vue: 3.2.26
-    dev: false
-
   /@vue/runtime-core/3.2.26:
     resolution: {integrity: sha512-BcYi7qZ9Nn+CJDJrHQ6Zsmxei2hDW0L6AB4vPvUQGBm2fZyC0GXd/4nVbyA2ubmuhctD5RbYY8L+5GUJszv9mQ==}
     dependencies:
@@ -336,10 +314,6 @@ packages:
       '@algolia/requester-node-http': 4.10.5
       '@algolia/transporter': 4.10.5
 
-  /argparse/2.0.1:
-    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: false
-
   /body-scroll-lock/3.1.5:
     resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
     dev: false
@@ -350,10 +324,6 @@ packages:
 
   /dynamics.js/1.1.5:
     resolution: {integrity: sha1-uQvcM2Bc7+ZSuEFucB95v27vzjI=}
-    dev: false
-
-  /entities/2.1.0:
-    resolution: {integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==}
     dev: false
 
   /esbuild-android-arm64/0.13.15:
@@ -553,32 +523,11 @@ packages:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
     dev: false
 
-  /linkify-it/3.0.3:
-    resolution: {integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==}
-    dependencies:
-      uc.micro: 1.0.6
-    dev: false
-
   /magic-string/0.25.7:
     resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
     dependencies:
       sourcemap-codec: 1.4.8
     dev: true
-
-  /markdown-it/12.3.2:
-    resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
-    hasBin: true
-    dependencies:
-      argparse: 2.0.1
-      entities: 2.1.0
-      linkify-it: 3.0.3
-      mdurl: 1.0.1
-      uc.micro: 1.0.6
-    dev: false
-
-  /mdurl/1.0.1:
-    resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
-    dev: false
 
   /nanoid/3.1.29:
     resolution: {integrity: sha512-dW2pUSGZ8ZnCFIlBIA31SV8huOGCHb6OwzVCc7A69rb/a+SgPBwfmLvK5TKQ3INPbRkcI8a/Owo0XbiTNH19wg==}
@@ -686,10 +635,6 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  /uc.micro/1.0.6:
-    resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
-    dev: false
 
   /vite/2.7.3:
     resolution: {integrity: sha512-GAY1P+9fLJOju1SRm8+hykVnEXog+E+KXuqqyMBQDriKCUIKzWnPn142yNNhSdf/ixYGYdUa5ce3A8WaEajzGw==}

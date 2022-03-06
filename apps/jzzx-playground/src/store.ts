@@ -17,7 +17,7 @@ const devuiImports = {
   'vue-devui': 'https://unpkg.com/vue-devui@1.0.0-beta.17/vue-devui.es.js'
 }
 const antdesignImports = {
-  'ant-design-vue': 'https://unpkg.com/ant-design-vue@3.0.0-beta.13/es/index.js'
+  'ant-design-vue': 'https://unpkg.com/ant-design-vue@3.0.0-beta.2/es/index.js'
 }
 const elementplusImports = {
   'element-plus': 'https://unpkg.com/element-plus@2.0.4/dist/index.full.min.mjs'
@@ -82,7 +82,7 @@ const varletReplPluginCode = `\
 import VarletUI, { Context } from '@varlet/ui'
 import ElementPlusUI from 'element-plus'
 import DevUI from 'vue-devui'
-// import Antd from 'ant-design-vue';
+// import Antd from 'ant-design-vue
 import '@varlet/touch-emulator'
 import { getCurrentInstance } from 'vue'
 // console.log(Antd)
@@ -294,7 +294,7 @@ export class ReplStore implements Store {
 
   getImportMap() {
     try {
-      console.log(JSON.parse(this.state.files['import-map.json'].code));
+      console.log(JSON.parse(this.state.files['import-map.json'].code))
       return JSON.parse(this.state.files['import-map.json'].code)
     } catch (e) {
       this.state.errors = [

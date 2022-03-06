@@ -106,9 +106,9 @@ export const nav = [
     activeMatch: `^/community/`,
     items: [
       {
-        text: 'Element-ui',
+        text: 'jzzx-ui',
         items: [
-          { text: 'stock', link: '/community/team' }
+          { text: 'jzzx-ui', link: '/jzzx-ui/index' }
           // {
           //   text: 'Contribution Guide',
           //   link: '/community/contribution-guide'

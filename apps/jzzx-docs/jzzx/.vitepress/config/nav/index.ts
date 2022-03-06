@@ -21,7 +21,7 @@ export const nav = [
   },
   {
     text: 'Playground',
-    link: 'https://sfc.vuejs.org'
+    link: 'https://erkelost.gitee.io/jzzx'
   },
   {
     text: 'Vue规范',

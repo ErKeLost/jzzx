@@ -216,6 +216,7 @@ importers:
       rollup-plugin-replace: ^2.2.0
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.1
+      tslib: ^2.3.1
       typescript: ^4.5.4
     dependencies:
       dayjs: 1.10.7
@@ -230,6 +231,7 @@ importers:
       rollup-plugin-replace: 2.2.0
       rollup-plugin-terser: 7.0.2_rollup@2.67.1
       rollup-plugin-typescript2: 0.31.2_rollup@2.67.1+typescript@4.5.5
+      tslib: 2.3.1
       typescript: 4.5.5
 
   packages/config:

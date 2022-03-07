@@ -196,5 +196,15 @@ pnpm add @rollup/plugin-typescript  tslib typescript -D
 lib 打包的时候 我们需要用到vue的时候 
 :::
 ```js
+// vue3
 pnpm add rollup-plugin-vue @vue/compiler-sfc -D
+// vue2 
+pnpm add rollup-plugin-vue@5.1.9 vue-tempalte-compoler
 ```
+
+
+## postcss
+:::warning
+postcss 支持scss  less 和其他 css 预处理器
+:::
+pnpm add rollup-plugin-postcss postcss

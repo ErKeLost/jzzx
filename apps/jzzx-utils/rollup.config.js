@@ -38,7 +38,7 @@ export default {
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**'
-    }),
-    terser()
+    })
+    // terser()
   ]
 }

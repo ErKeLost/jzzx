@@ -25,5 +25,4 @@ function formatDuration(duration) {
 
   return padLeftZero(minute) + ':' + padLeftZero(second)
 }
-
 export { formatDuration, formatCount }

@@ -22,6 +22,9 @@ const antdesignImports = {
 const elementplusImports = {
   'element-plus': 'https://unpkg.com/element-plus@2.0.4/dist/index.full.min.mjs'
 }
+const jzzxUtilsImports = {
+  'jzzx-utils': 'https://unpkg.com/jzzx-utils@1.0.1/dist/utils.es.min.js'
+}
 const welcomeCode = `\
 <script setup lang='ts'>
 import { ref } from 'vue'
@@ -81,14 +84,17 @@ const date = ref('2022-03-10')
 const varletReplPluginCode = `\
 import VarletUI, { Context } from '@varlet/ui'
 import ElementPlusUI from 'element-plus'
+import {formatDuration} from 'jzzx-utils'
 import DevUI from 'vue-devui'
 // import Antd from 'ant-design-vue
 import '@varlet/touch-emulator'
 import { getCurrentInstance } from 'vue'
-// console.log(Antd)
+console.log(formatDuration(666000))
 Context.touchmoveForbid = false
 await appendStyle()
-
+export {
+  formatDuration
+}
 export function installVarletUI() {
   const instance = getCurrentInstance()
   instance.appContext.app.use(VarletUI)
@@ -273,6 +279,7 @@ export class ReplStore implements Store {
               ...varletImports,
               ...devuiImports,
               // ...antdesignImports,
+              ...jzzxUtilsImports,
               ...elementplusImports
             }
           },

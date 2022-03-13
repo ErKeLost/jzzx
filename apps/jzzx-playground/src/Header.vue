@@ -87,7 +87,7 @@ async function fetchVersions(): Promise<string[]> {
 <template>
   <nav>
     <h1>
-      <img alt="logo" src="http://47.95.215.156/assets/jzzx.9ba28061.jpg" />
+      <img alt="logo" src="../public/jzzx.jpg" />
       <span>Jzzx Playground</span>
     </h1>
     <div class="links">

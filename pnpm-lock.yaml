@@ -4,26 +4,60 @@ importers:
 
   .:
     specifiers:
+      '@babel/core': ^7.17.2
+      '@babel/preset-env': ^7.16.11
+      '@babel/preset-typescript': ^7.16.7
+      '@rollup/plugin-babel': ^5.3.0
+      '@rollup/plugin-commonjs': ^20.0.0
+      '@rollup/plugin-json': ^4.1.0
+      '@rollup/plugin-node-resolve': ^13.1.3
+      '@rollup/plugin-typescript': ^8.3.0
       '@types/node': ^17.0.12
       '@typescript-eslint/eslint-plugin': ^5.11.0
       '@typescript-eslint/parser': ^5.11.0
       '@vitejs/plugin-vue': ^2.2.0
+      babel-jest: ^27.4.5
+      dayjs: ^1.10.7
       eslint: ^8.9.0
       prettier: ^2.5.1
+      rollup: ^2.67.1
+      rollup-plugin-commonjs: ^10.1.0
+      rollup-plugin-replace: ^2.2.0
+      rollup-plugin-terser: ^7.0.2
+      rollup-plugin-typescript: ^1.0.1
+      rollup-plugin-typescript2: ^0.31.2
+      tslib: ^2.3.1
       turbo: latest
       typescript: ^4.6.3
       vite: ^2.8.0
       vue: ^3.2.25
       vue-tsc: ^0.29.8
     dependencies:
+      dayjs: 1.10.7
       vue: 3.2.30
     devDependencies:
+      '@babel/core': 7.17.2
+      '@babel/preset-env': 7.16.11_@babel+core@7.17.2
+      '@babel/preset-typescript': 7.16.7_@babel+core@7.17.2
+      '@rollup/plugin-babel': 5.3.0_@babel+core@7.17.2+rollup@2.67.1
+      '@rollup/plugin-commonjs': 20.0.0_rollup@2.67.1
+      '@rollup/plugin-json': 4.1.0_rollup@2.67.1
+      '@rollup/plugin-node-resolve': 13.1.3_rollup@2.67.1
+      '@rollup/plugin-typescript': 8.3.1_ff989880f4b3eaf6f82f28509a2a3ee5
       '@types/node': 17.0.14
       '@typescript-eslint/eslint-plugin': 5.12.1_b974365ae867396406e6c6a56a16031c
       '@typescript-eslint/parser': 5.12.1_eslint@8.10.0+typescript@4.6.3
       '@vitejs/plugin-vue': 2.2.4_vite@2.8.6+vue@3.2.30
+      babel-jest: 27.5.1_@babel+core@7.17.2
       eslint: 8.10.0
       prettier: 2.5.1
+      rollup: 2.67.1
+      rollup-plugin-commonjs: 10.1.0_rollup@2.67.1
+      rollup-plugin-replace: 2.2.0
+      rollup-plugin-terser: 7.0.2_rollup@2.67.1
+      rollup-plugin-typescript: 1.0.1_tslib@2.3.1+typescript@4.6.3
+      rollup-plugin-typescript2: 0.31.2_5aef907c1648a101628bce904b0f30af
+      tslib: 2.3.1
       turbo: 1.1.10
       typescript: 4.6.3
       vite: 2.8.6
@@ -52,7 +86,6 @@ importers:
       shelljs: ^0.8.5
       ts-node: ^10.4.0
       tslint: ^6.1.3
-      typescript: ^4.5.3
     dependencies:
       chalk: 4.1.0
       chalk-animation: 1.6.0
@@ -74,21 +107,13 @@ importers:
     devDependencies:
       '@types/node': 17.0.14
       rimraf: 3.0.2
-      ts-node: 10.4.0_43d2036524ce97aa8076ce68340fa9ec
-      tslint: 6.1.3_typescript@4.5.5
-      typescript: 4.5.5
+      ts-node: 10.4.0_267a23e79dd9e3e76dcafec7ea7e6b72
+      tslint: 6.1.3_typescript@4.6.3
 
   apps/jzzx-directives:
     specifiers:
       clipboard: ^2.0.8
       commander: ^8.2.0
-      dayjs: ^1.10.7
-      prettier: ^2.4.1
-      rollup: ^2.56.3
-      rollup-plugin-commonjs: ^10.1.0
-      rollup-plugin-node-resolve: ^5.2.0
-      rollup-plugin-terser: ^7.0.2
-      rollup-plugin-typescript: ^1.0.1
       rollup-plugin-vue: ^6.0.0
       shelljs: ^0.8.4
       tslib: ^2.3.1
@@ -97,13 +122,6 @@ importers:
       clipboard: 2.0.10
     devDependencies:
       commander: 8.3.0
-      dayjs: 1.10.7
-      prettier: 2.5.1
-      rollup: 2.67.1
-      rollup-plugin-commonjs: 10.1.0_rollup@2.67.1
-      rollup-plugin-node-resolve: 5.2.0_rollup@2.67.1
-      rollup-plugin-terser: 7.0.2_rollup@2.67.1
-      rollup-plugin-typescript: 1.0.1_tslib@2.3.1+typescript@4.6.3
       rollup-plugin-vue: 6.0.0
       shelljs: 0.8.5
       tslib: 2.3.1
@@ -111,103 +129,21 @@ importers:
 
   apps/jzzx-request:
     specifiers:
-      '@babel/core': ^7.17.2
-      '@babel/preset-env': ^7.16.11
-      '@rollup/plugin-babel': ^5.3.0
-      '@rollup/plugin-commonjs': ^21.0.1
-      '@rollup/plugin-json': ^4.1.0
-      '@rollup/plugin-node-resolve': ^13.1.3
       axios: ^0.25.0
-      rollup: ^2.67.1
-      rollup-plugin-node-resolve: ^5.2.0
-      rollup-plugin-replace: ^2.2.0
-      rollup-plugin-terser: ^7.0.2
-      rollup-plugin-typescript2: ^0.31.2
-      typescript: ^4.5.3
     dependencies:
       axios: 0.25.0
-    devDependencies:
-      '@babel/core': 7.17.2
-      '@babel/preset-env': 7.16.11_@babel+core@7.17.2
-      '@rollup/plugin-babel': 5.3.0_@babel+core@7.17.2+rollup@2.67.1
-      '@rollup/plugin-commonjs': 21.0.1_rollup@2.67.1
-      '@rollup/plugin-json': 4.1.0_rollup@2.67.1
-      '@rollup/plugin-node-resolve': 13.1.3_rollup@2.67.1
-      rollup: 2.67.1
-      rollup-plugin-node-resolve: 5.2.0_rollup@2.67.1
-      rollup-plugin-replace: 2.2.0
-      rollup-plugin-terser: 7.0.2_rollup@2.67.1
-      rollup-plugin-typescript2: 0.31.2_e368114e06a97ef680bfb1463795e572
-      typescript: 4.5.5
 
   apps/jzzx-shared:
     specifiers: {}
 
   apps/jzzx-store:
-    specifiers:
-      '@babel/core': ^7.16.7
-      '@babel/preset-env': ^7.16.7
-      '@babel/preset-typescript': ^7.16.7
-      '@rollup/plugin-babel': ^5.3.0
-      '@rollup/plugin-typescript': ^8.3.0
-      babel-jest: ^27.4.5
-      rollup: ^2.62.0
-      rollup-plugin-terser: ^7.0.2
-      tslib: ^2.3.1
-      typescript: ^4.5.4
-    devDependencies:
-      '@babel/core': 7.17.2
-      '@babel/preset-env': 7.16.11_@babel+core@7.17.2
-      '@babel/preset-typescript': 7.16.7_@babel+core@7.17.2
-      '@rollup/plugin-babel': 5.3.0_@babel+core@7.17.2+rollup@2.67.1
-      '@rollup/plugin-typescript': 8.3.1_86c7512d54e5fcf3b546877c26442da8
-      babel-jest: 27.5.1_@babel+core@7.17.2
-      rollup: 2.67.1
-      rollup-plugin-terser: 7.0.2_rollup@2.67.1
-      tslib: 2.3.1
-      typescript: 4.5.5
+    specifiers: {}
 
   apps/jzzx-utils:
     specifiers:
-      '@babel/core': ^7.15.5
-      '@babel/preset-env': ^7.15.6
-      '@rollup/plugin-babel': ^5.3.0
-      '@rollup/plugin-commonjs': ^20.0.0
-      '@rollup/plugin-json': ^4.1.0
-      '@rollup/plugin-node-resolve': ^13.0.4
       '@vueuse/core': ^7.3.0
-      dayjs: ^1.10.7
-      rollup: ^2.56.3
-      rollup-plugin-replace: ^2.2.0
-      rollup-plugin-terser: ^7.0.2
-      rollup-plugin-typescript2: ^0.31.1
-      tslib: ^2.3.1
-      typescript: ^4.5.4
     dependencies:
       '@vueuse/core': 7.7.0_vue@3.2.30
-      dayjs: 1.10.7
-    devDependencies:
-      '@babel/core': 7.17.2
-      '@babel/preset-env': 7.16.11_@babel+core@7.17.2
-      '@rollup/plugin-babel': 5.3.0_@babel+core@7.17.2+rollup@2.67.1
-      '@rollup/plugin-commonjs': 20.0.0_rollup@2.67.1
-      '@rollup/plugin-json': 4.1.0_rollup@2.67.1
-      '@rollup/plugin-node-resolve': 13.1.3_rollup@2.67.1
-      rollup: 2.67.1
-      rollup-plugin-replace: 2.2.0
-      rollup-plugin-terser: 7.0.2_rollup@2.67.1
-      rollup-plugin-typescript2: 0.31.2_e368114e06a97ef680bfb1463795e572
-      tslib: 2.3.1
-      typescript: 4.5.5
-
-  apps/vue-demo1:
-    specifiers: {}
-
-  apps/vue-demo2:
-    specifiers: {}
-
-  apps/vue-demo3:
-    specifiers: {}
 
   packages/config:
     specifiers:
@@ -1682,22 +1618,6 @@ packages:
       rollup: 2.67.1
     dev: true
 
-  /@rollup/plugin-commonjs/21.0.1_rollup@2.67.1:
-    resolution: {integrity: sha512-EA+g22lbNJ8p5kuZJUYyhhDK7WgJckW5g4pNN7n4mAFUM96VuwUnNT3xr2Db2iCZPI1pJPbGyfT5mS9T1dHfMg==}
-    engines: {node: '>= 8.0.0'}
-    peerDependencies:
-      rollup: ^2.38.3
-    dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.67.1
-      commondir: 1.0.1
-      estree-walker: 2.0.2
-      glob: 7.2.0
-      is-reference: 1.2.1
-      magic-string: 0.25.7
-      resolve: 1.22.0
-      rollup: 2.67.1
-    dev: true
-
   /@rollup/plugin-json/4.1.0_rollup@2.67.1:
     resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
     peerDependencies:
@@ -1722,7 +1642,7 @@ packages:
       rollup: 2.67.1
     dev: true
 
-  /@rollup/plugin-typescript/8.3.1_86c7512d54e5fcf3b546877c26442da8:
+  /@rollup/plugin-typescript/8.3.1_ff989880f4b3eaf6f82f28509a2a3ee5:
     resolution: {integrity: sha512-84rExe3ICUBXzqNX48WZV2Jp3OddjTMX97O2Py6D1KJaGSwWp0mDHXj+bCGNJqWHIEKDIT2U0sDjhP4czKi6cA==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
@@ -1734,7 +1654,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.67.1
       tslib: 2.3.1
-      typescript: 4.5.5
+      typescript: 4.6.3
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.67.1:
@@ -1891,12 +1811,6 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.10
-    dev: true
-
-  /@types/resolve/0.0.8:
-    resolution: {integrity: sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==}
-    dependencies:
-      '@types/node': 17.0.14
     dev: true
 
   /@types/resolve/1.17.1:
@@ -2927,7 +2841,7 @@ packages:
       color-name: 1.1.4
 
   /color-name/1.1.3:
-    resolution: {integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=}
+    resolution: {integrity: sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==}
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
@@ -2951,7 +2865,7 @@ packages:
     dev: false
 
   /commondir/1.0.1:
-    resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
+    resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
     dev: true
 
   /concat-map/0.0.1:
@@ -3037,6 +2951,7 @@ packages:
 
   /dayjs/1.10.7:
     resolution: {integrity: sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -3534,7 +3449,7 @@ packages:
     dev: true
 
   /escape-string-regexp/1.0.5:
-    resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
+    resolution: {integrity: sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==}
     engines: {node: '>=0.8.0'}
 
   /escape-string-regexp/4.0.0:
@@ -4251,7 +4166,7 @@ packages:
     dev: false
 
   /has-flag/3.0.0:
-    resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=}
+    resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
     engines: {node: '>=4'}
 
   /has-flag/4.0.0:
@@ -4402,7 +4317,7 @@ packages:
     dev: true
 
   /imurmurhash/0.1.4:
-    resolution: {integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=}
+    resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
   /indent-string/3.2.0:
@@ -4544,7 +4459,7 @@ packages:
     dev: false
 
   /is-module/1.0.0:
-    resolution: {integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=}
+    resolution: {integrity: sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==}
     dev: true
 
   /is-natural-number/4.0.1:
@@ -6058,20 +5973,6 @@ packages:
       rollup-pluginutils: 2.8.2
     dev: true
 
-  /rollup-plugin-node-resolve/5.2.0_rollup@2.67.1:
-    resolution: {integrity: sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==}
-    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-node-resolve.
-    peerDependencies:
-      rollup: '>=1.11.0'
-    dependencies:
-      '@types/resolve': 0.0.8
-      builtin-modules: 3.2.0
-      is-module: 1.0.0
-      resolve: 1.22.0
-      rollup: 2.67.1
-      rollup-pluginutils: 2.8.2
-    dev: true
-
   /rollup-plugin-replace/2.2.0:
     resolution: {integrity: sha512-/5bxtUPkDHyBJAKketb4NfaeZjL5yLZdeUihSfbF2PQMz+rSTEb8ARKoOl3UBT4m7/X+QOXJo3sLTcq+yMMYTA==}
     deprecated: This module has moved and is now available at @rollup/plugin-replace. Please update your dependencies. This version is no longer maintained.
@@ -6107,7 +6008,7 @@ packages:
       typescript: 4.6.3
     dev: true
 
-  /rollup-plugin-typescript2/0.31.2_e368114e06a97ef680bfb1463795e572:
+  /rollup-plugin-typescript2/0.31.2_5aef907c1648a101628bce904b0f30af:
     resolution: {integrity: sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==}
     peerDependencies:
       rollup: '>=1.26.3'
@@ -6120,7 +6021,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.67.1
       tslib: 2.3.1
-      typescript: 4.5.5
+      typescript: 4.6.3
     transitivePeerDependencies:
       - '@types/bluebird'
       - '@types/node'
@@ -6603,7 +6504,7 @@ packages:
       escape-string-regexp: 1.0.5
     dev: false
 
-  /ts-node/10.4.0_43d2036524ce97aa8076ce68340fa9ec:
+  /ts-node/10.4.0_267a23e79dd9e3e76dcafec7ea7e6b72:
     resolution: {integrity: sha512-g0FlPvvCXSIO1JDF6S232P5jPYqBkRL9qly81ZgAOSU7rwI0stphCgd2kLiCrU9DjQCrJMWEqcNSjQL02s6d8A==}
     hasBin: true
     peerDependencies:
@@ -6629,7 +6530,7 @@ packages:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 4.5.5
+      typescript: 4.6.3
       yn: 3.1.1
     dev: true
 
@@ -6660,7 +6561,7 @@ packages:
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
 
-  /tslint/6.1.3_typescript@4.5.5:
+  /tslint/6.1.3_typescript@4.6.3:
     resolution: {integrity: sha512-IbR4nkT96EQOvKE2PW/djGz8iGNeJ4rF2mBfiYaR/nvUWYKJhLwimoJKgjIFEIDibBtOevj7BqCRL4oHeWWUCg==}
     engines: {node: '>=4.8.0'}
     deprecated: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
@@ -6680,17 +6581,17 @@ packages:
       resolve: 1.22.0
       semver: 5.7.1
       tslib: 1.14.1
-      tsutils: 2.29.0_typescript@4.5.5
-      typescript: 4.5.5
+      tsutils: 2.29.0_typescript@4.6.3
+      typescript: 4.6.3
     dev: true
 
-  /tsutils/2.29.0_typescript@4.5.5:
+  /tsutils/2.29.0_typescript@4.6.3:
     resolution: {integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==}
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.5.5
+      typescript: 4.6.3
     dev: true
 
   /tsutils/3.21.0_typescript@4.6.3:

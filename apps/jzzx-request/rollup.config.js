@@ -12,21 +12,21 @@ const name = 'Adny'
 export default {
   input: 'src/index.ts',
   output: [
-    {
-      name,
-      file: 'dist/jzzx-request.umd.min.js',
-      format: 'umd'
-    },
+    // {
+    //   name,
+    //   file: 'dist/jzzx-request.umd.min.js',
+    //   format: 'umd'
+    // },
     {
       name,
       file: 'dist/jzzx-request.es.min.js',
       format: 'es'
-    },
-    {
-      name,
-      file: 'dist/jzzx-request.cjs.min.js',
-      format: 'cjs'
     }
+    // {
+    //   name,
+    //   file: 'dist/jzzx-request.cjs.min.js',
+    //   format: 'cjs'
+    // }
   ],
   plugins: [
     NodeResolve(),

@@ -4,24 +4,24 @@ import babel from '@rollup/plugin-babel'
 import ts from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 
-const name = 'Adny'
+const name = 'Store'
 
 export default {
   input: 'src/index.ts',
   output: [
     {
       name,
-      file: 'dist/adny-store.umd.min.js',
+      file: 'dist/jzzx-store.umd.min.js',
       format: 'umd',
     },
     {
       name,
-      file: 'dist/adny-store.es.min.js',
+      file: 'dist/jzzx-store.es.min.js',
       format: 'es',
     },
     {
       name,
-      file: 'dist/adny-store.cjs.min.js',
+      file: 'dist/jzzx-store.cjs.min.js',
       format: 'cjs',
     }
   ],

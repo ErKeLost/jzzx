@@ -1,8 +1,8 @@
 {
-  "name": "adny-store",
+  "name": "jzzx-store",
   "version": "1.0.3",
-  "main": "dist/adny-store.cjs.min.js",
-  "module": "dist/adny-store.es.min.js",
+  "main": "dist/jzzx-store.cjs.min.js",
+  "module": "dist/jzzx-store.es.min.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",

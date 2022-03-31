@@ -137,7 +137,10 @@ importers:
     specifiers: {}
 
   apps/jzzx-store:
-    specifiers: {}
+    specifiers:
+      '@jzzx/shared': workspace:^1.0.0
+    dependencies:
+      '@jzzx/shared': link:../jzzx-shared
 
   apps/jzzx-utils:
     specifiers:

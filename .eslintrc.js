@@ -12,5 +12,9 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  rules: {}
+  rules: {
+    "linebreak-style": ["off", "windows"],
+    "no-mixed-spaces-and-tabs": ["off", "windows"],
+    "no-consol": "off"
+  }
 }

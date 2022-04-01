@@ -18,9 +18,9 @@
     "prettier": "prettier --write .",
     "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}",
     "eslint": "eslint . --ext .ts,.vue,.js,.tsx",
-    "preinstall": "node ./scripts/prelint/preinstall.js",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "dayjs": "^1.10.7",

@@ -9,7 +9,7 @@
   "scripts": {
     "install:example": "pnpm add ** --filter **/** packageName 包名",
     "global:example": "pnpm add ** -W || --workspace-root",
-    "dev:global:example": "pnpm add ** -w -D",
+    "dev:global:example": "pnpm add ** -w -D cp /src/template",
     "preview": "vite preview",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -56,7 +56,7 @@
     "tslib": "^2.3.1",
     "turbo": "latest",
     "typescript": "^4.6.3",
-    "vite": "^2.8.6",
+    "vite": "^2.9.1",
     "vue-tsc": "^0.29.8"
   },
   "engines": {

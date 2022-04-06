@@ -6,13 +6,13 @@
     :sider-collapse="siderCollapse"
   >
     <template #header>
-      <div text-red class="flex-center h-full bg-[#e6e6e6]">Header</div>
+      <div text-red class="flex-center h-full bg-[#abf]">Header</div>
     </template>
     <template #tab>
-      <div class="flex-center h-full bg-[#cccccc]">Tab</div>
+      <div class="flex-center h-full bg-[#fba]">Tab</div>
     </template>
     <template #sider>
-      <div class="h-full px-12px bg-[#d9d9d9] whitespace-nowrap">
+      <div class="h-full px-12px bg-[#fab] whitespace-nowrap">
         <div class="flex-center h-56px">Sider</div>
         <div>
           <h4>layout mode:</h4>
@@ -43,7 +43,7 @@
       </div>
     </template>
     <template #footer>
-      <div class="flex-center h-full bg-[#e6e6e6]">Footer</div>
+      <div class="flex-center h-full bg-[#bfa]">Footer</div>
     </template>
     <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
   </soybean-admin-layout>
@@ -76,4 +76,9 @@ function setSiderCollapse() {
 }
 </script>
 
-<style></style>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>

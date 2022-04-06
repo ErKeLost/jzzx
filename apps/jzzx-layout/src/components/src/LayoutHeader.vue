@@ -1,7 +1,7 @@
 <template>
-  <div class="soybean-admin-layout__tab" :style="style">
+  <header class="adny-layout__header" :style="style">
     <slot></slot>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -11,8 +11,6 @@ import { useCssRender } from '@/hooks';
 interface Props {
   /** 开启fixed布局 */
   fixed?: boolean;
-  /** fixed布局的top距离 */
-  top?: number;
   /** fixed布局的层级 */
   zIndex?: number;
   /** 最小宽度 */
@@ -29,10 +27,9 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   fixed: true,
-  top: 56,
-  zIndex: 999,
+  zIndex: 2002,
   minWidth: 1200,
-  height: 56,
+  height: 70,
   paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
@@ -41,14 +38,15 @@ const props = withDefaults(defineProps<Props>(), {
 const { cssRender } = useCssRender();
 
 const style = computed(() => {
-  const { fixed, top, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
+  const { fixed, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
   const position = fixed ? 'fixed' : 'static';
-  return `position: ${position};top: ${top}px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
 });
 
 // css
-cssRender('.soybean-admin-layout__tab', {
+cssRender('.adny-layout__header', {
   left: 0,
+  top: 0,
   flexShrink: 0,
   boxSizing: 'border-box',
   width: '100%',

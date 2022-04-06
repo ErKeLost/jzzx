@@ -1,11 +1,11 @@
 import type { App } from 'vue-demi';
-import SoybeanAdminLayout from './index.vue';
+import AdnyLayout from './index.vue'
 
 function install(app: App) {
-  app.component('SoybeanAdminLayout', SoybeanAdminLayout);
+  app.component('AdnyLayout', AdnyLayout);
 }
 
-SoybeanAdminLayout.install = install;
+AdnyLayout.install = install;
 
 export interface LayoutProps {
   /** 布局模式 */
@@ -42,4 +42,4 @@ export interface LayoutProps {
   transitionTimingFunction?: string;
 }
 
-export default SoybeanAdminLayout;
+export default AdnyLayout;

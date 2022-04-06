@@ -23,7 +23,7 @@ export default defineConfig(async (env) => {
     build: {
       lib: {
         entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-        name: 'SoybeanAdminLayout',
+        name: 'AdnyLayout',
         fileName: 'index'
       },
       rollupOptions: {

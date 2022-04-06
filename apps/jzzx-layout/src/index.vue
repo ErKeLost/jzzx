@@ -1,7 +1,6 @@
 <template>
-  <div class="soybean-admin-layout" :style="{ minWidth: minWidth + 'px' }">
+  <div class="adny-layout" :style="{ minWidth: minWidth + 'px' }">
     <layout-header
-      text-center
       v-if="headerVisible"
       v-bind="commonProps"
       :fixed="fixedHeaderAndTab"
@@ -60,15 +59,12 @@
 
 <script setup lang="ts">
 import { computed } from 'vue-demi'
-import {
-  LayoutHeader,
-  LayoutTab,
-  LayoutSider,
-  LayoutContent,
-  LayoutFooter
-} from './components'
+import LayoutTab from './components/src/LayoutTab.vue'
+import LayoutContent from './components/src/LayoutContent.vue'
+import LayoutSider from './components/src/LayoutSider.vue'
+import LayoutHeader from './components/src/LayoutHeader.vue'
+import LayoutFooter from './components/src/LayoutFooter.vue'
 import { useCssRender, useFixedTransformStyle } from './hooks'
-
 interface Props {
   /** 布局模式 */
   mode?: 'vertical' | 'horizontal'
@@ -103,7 +99,6 @@ interface Props {
   /** 动画过渡速度曲线 */
   transitionTimingFunction?: string
 }
-
 const props = withDefaults(defineProps<Props>(), {
   mode: 'vertical',
   minWidth: 1200,
@@ -113,7 +108,7 @@ const props = withDefaults(defineProps<Props>(), {
   tabHeight: 44,
   fixedHeaderAndTab: true,
   footerVisible: true,
-  footerHeight: 48,
+  footerHeight: 68,
   fixedFooter: true,
   siderVisible: true,
   siderWidth: 200,
@@ -122,9 +117,7 @@ const props = withDefaults(defineProps<Props>(), {
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 })
-
 const { cssRender } = useCssRender()
-
 // fixed布局时，应用translateX样式(水平方向出现滚动条，拖动滚动条时，fixed元素跟着滚动)
 const hasFixedEl = computed(() => props.fixedHeaderAndTab || props.fixedFooter)
 const transformStyle = useFixedTransformStyle(hasFixedEl)
@@ -134,7 +127,6 @@ const headerAndTabTransform = computed(() =>
 const footerTransform = computed(() =>
   props.fixedFooter ? transformStyle.value : ''
 )
-
 /** 各个子组件的公共属性 */
 const commonProps = computed(() => {
   const { transitionDuration, transitionTimingFunction } = props
@@ -143,23 +135,19 @@ const commonProps = computed(() => {
     transitionTimingFunction
   }
 })
-
 /** 水平布局 */
 const isVertical = computed(() => props.mode === 'vertical')
-
 // fixed布局时的层级
 const headerZIndex = 1001
 const tabZIndex = 999
 const siderZIndex = computed(() => (isVertical.value ? 1002 : 1000))
 const footerZIndex = 999
-
 /** 侧边宽度 */
 const siderWidth = computed(() => {
   const { siderCollapse, siderWidth, siderCollapsedWidth } = props
   const width = siderCollapse ? siderCollapsedWidth : siderWidth
   return props.siderVisible ? width : 0
 })
-
 // 各子组件的属性
 const headerPaddingLeft = computed(() =>
   isVertical.value ? siderWidth.value : 0
@@ -182,9 +170,8 @@ const contentPaddingTop = computed(() => {
 const contentPaddingBottom = computed(() =>
   props.fixedFooter && props.footerVisible ? props.footerHeight : 0
 )
-
 // css
-cssRender('.soybean-admin-layout', {
+cssRender('.adny-layout', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',

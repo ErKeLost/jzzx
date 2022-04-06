@@ -1,5 +1,5 @@
 <template>
-  <footer class="soybean-admin-layout__footer" :style="style">
+  <footer class="adny-layout__footer" :style="style">
     <slot></slot>
   </footer>
 </template>
@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
   fixed: true,
   zIndex: 999,
   minWidth: 1200,
-  height: 56,
+  height: 16,
   paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
@@ -44,7 +44,7 @@ const style = computed(() => {
 });
 
 // css
-cssRender('.soybean-admin-layout__footer', {
+cssRender('.adny-layout__footer', {
   left: 0,
   bottom: 0,
   flexShrink: 0,

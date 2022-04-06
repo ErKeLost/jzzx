@@ -1,5 +1,5 @@
 <template>
-  <soybean-admin-layout
+  <adny-layout
     :mode="mode"
     :fixed-header-and-tab="fixedHeaderAndTab"
     :fixed-footer="fixedFooter"
@@ -46,12 +46,12 @@
       <div class="flex-center h-full bg-[#bfa]">Footer</div>
     </template>
     <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
-  </soybean-admin-layout>
+  </adny-layout>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import SoybeanAdminLayout from './index.vue';
+import adnyLayout from '../index.vue'
 
 type Mode = 'vertical' | 'horizontal';
 const mode = ref<Mode>('vertical');

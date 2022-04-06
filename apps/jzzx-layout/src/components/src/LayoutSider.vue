@@ -1,7 +1,7 @@
 <template>
-  <main :style="style" class="soybean-admin-layout__main">
+  <aside class="adny-layout__sider" :style="style">
     <slot></slot>
-  </main>
+  </aside>
 </template>
 
 <script setup lang="ts">
@@ -9,12 +9,12 @@ import { computed } from 'vue-demi';
 import { useCssRender } from '@/hooks';
 
 interface Props {
+  /** fixed布局的层级 */
+  zIndex?: number;
+  /** 宽度 */
+  width?: number;
   /** 顶部内边距 */
   paddingTop?: number;
-  /** 底部内边距 */
-  paddingBottom?: number;
-  /** 左侧内边距 */
-  paddingLeft?: number;
   /** 动画过渡时间 */
   transitionDuration?: number;
   /** 动画过渡时间 */
@@ -22,9 +22,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  zIndex: 1002,
+  width: 200,
   paddingTop: 0,
-  paddingBottom: 0,
-  paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 });
@@ -32,16 +32,19 @@ const props = withDefaults(defineProps<Props>(), {
 const { cssRender } = useCssRender();
 
 const style = computed(() => {
-  const { paddingTop, paddingBottom, paddingLeft, transitionDuration, transitionTimingFunction } = props;
-  return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  const { zIndex, width, paddingTop, transitionDuration, transitionTimingFunction } = props;
+  return `z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
 });
 
 // css
-cssRender('.soybean-admin-layout__main', {
-  flexGrow: 1,
+cssRender('.adny-layout__sider', {
+  position: 'fixed',
+  left: 0,
+  top: 0,
   boxSizing: 'border-box',
   width: '100%',
-  transitionProperty: 'padding-left'
+  height: '100%',
+  transitionProperty: 'all'
 });
 </script>
 <style></style>

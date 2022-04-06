@@ -1,5 +1,5 @@
 <template>
-  <aside class="adny-layout__sider" :style="style">
+  <aside :class="[isFixed ? 'adny-layout__sider__fixed' : 'adny-layout__sider']" :style="style">
     <slot></slot>
   </aside>
 </template>
@@ -9,6 +9,7 @@ import { computed } from 'vue-demi';
 import { useCssRender } from '@/hooks';
 
 interface Props {
+  isFixed?: boolean,
   /** fixed布局的层级 */
   zIndex?: number;
   /** 宽度 */
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  isFixed: false,
   zIndex: 1002,
   width: 200,
   paddingTop: 0,
@@ -38,6 +40,11 @@ const style = computed(() => {
 
 // css
 cssRender('.adny-layout__sider', {
+  boxSizing: 'border-box',
+  width: '100%',
+  transitionProperty: 'all'
+});
+cssRender('.adny-layout__sider__fixed', {
   position: 'fixed',
   left: 0,
   top: 0,

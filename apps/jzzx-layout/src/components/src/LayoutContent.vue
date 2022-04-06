@@ -33,7 +33,7 @@ const { cssRender } = useCssRender();
 
 const style = computed(() => {
   const { paddingTop, paddingBottom, paddingLeft, transitionDuration, transitionTimingFunction } = props;
-  return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${0}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
 });
 
 // css
@@ -41,7 +41,7 @@ cssRender('.adny-layout__main', {
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%',
-  transitionProperty: 'padding-left'
+  transitionProperty: 'all'
 });
 </script>
 <style></style>

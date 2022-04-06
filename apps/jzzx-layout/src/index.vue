@@ -25,35 +25,40 @@
     >
       <slot name="tab"></slot>
     </layout-tab>
-    <layout-sider
-      v-if="siderVisible"
-      v-bind="commonProps"
-      :z-index="siderZIndex"
-      :width="siderWidth"
-      :padding-top="siderPaddingTop"
-    >
-      <slot name="sider"></slot>
-    </layout-sider>
-    <layout-content
-      v-bind="commonProps"
-      :padding-top="contentPaddingTop"
-      :padding-bottom="contentPaddingBottom"
-      :padding-left="siderWidth"
-    >
-      <slot></slot>
-    </layout-content>
-    <layout-footer
-      v-if="footerVisible"
-      v-bind="commonProps"
-      :fixed="fixedFooter"
-      :z-index="footerZIndex"
-      :min-width="minWidth"
-      :height="footerHeight"
-      :padding-left="siderWidth"
-      :style="footerTransform"
-    >
-      <slot name="footer"></slot>
-    </layout-footer>
+    <div class="adny-layout__bottom">
+      <layout-sider
+        v-if="siderVisible"
+        v-bind="commonProps"
+        :z-index="siderZIndex"
+        :width="siderWidth"
+        :padding-top="siderPaddingTop"
+        :isFixed="siderFixed"
+      >
+        <slot name="sider"></slot>
+      </layout-sider>
+      <div class="adny-layout__bottom__right" :style="siderFixed ? `margin-left: ${siderWidth}px` : null">
+        <layout-content
+          v-bind="commonProps"
+          :padding-top="contentPaddingTop"
+          :padding-bottom="contentPaddingBottom"
+          :padding-left="siderWidth"
+        >
+          <slot></slot>
+        </layout-content>
+        <layout-footer
+          v-if="footerVisible"
+          v-bind="commonProps"
+          :fixed="fixedFooter"
+          :z-index="footerZIndex"
+          :min-width="minWidth"
+          :height="footerHeight"
+          :padding-left="siderWidth"
+          :style="footerTransform"
+        >
+          <slot name="footer"></slot>
+        </layout-footer>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -70,6 +75,8 @@ interface Props {
   mode?: 'vertical' | 'horizontal'
   /** 最小宽度 */
   minWidth?: number
+  /** 左侧fixed布局 */
+  siderFixed?: boolean
   /** 头部可见 */
   headerVisible?: boolean
   /** 头部高度 */
@@ -104,6 +111,7 @@ const props = withDefaults(defineProps<Props>(), {
   minWidth: 1200,
   headerVisible: true,
   headerHeight: 56,
+  siderFixed: true,
   tabVisible: true,
   tabHeight: 44,
   fixedHeaderAndTab: true,
@@ -171,8 +179,15 @@ const contentPaddingBottom = computed(() =>
   props.fixedFooter && props.footerVisible ? props.footerHeight : 0
 )
 // css
-cssRender('.adny-layout', {
+cssRender('.adny-layout__bottom', {
   display: 'flex',
+  // flexDirection: 'column',
+  width: '100%',
+  height: '100%'
+})
+cssRender('.adny-layout__bottom__right', {
+  display: 'flex',
+  flex: 1,
   flexDirection: 'column',
   width: '100%',
   height: '100%'

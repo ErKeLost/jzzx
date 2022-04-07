@@ -30,15 +30,19 @@
         </div>
         <div class="pt-24px">
           <span class="pr-8px">fixedHeaderAndTab</span>
-          <input type="checkbox" :checked="fixedHeaderAndTab" @change="setFixedHeaderAndTab" />
-        </div>
-        <div class="pt-24px">
-          <span class="pr-8px">fixedFooter</span>
-          <input type="checkbox" :checked="fixedFooter" @change="setFixedFooter" />
+          <input
+            type="checkbox"
+            :checked="fixedHeaderAndTab"
+            @change="setFixedHeaderAndTab"
+          />
         </div>
         <div class="pt-24px">
           <span class="pr-8px">siderCollapse</span>
-          <input type="checkbox" :checked="siderCollapse" @change="setSiderCollapse" />
+          <input
+            type="checkbox"
+            :checked="siderCollapse"
+            @change="setSiderCollapse"
+          />
         </div>
       </div>
     </template>
@@ -46,8 +50,10 @@
       <div class="flex-center h-full bg-[#bfa]">Footer</div>
     </template>
     <div text-center>
-      <img src="
-    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg" />
+      <img
+        src="
+    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg"
+      />
     </div>
     <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
   </adny-layout>
@@ -61,22 +67,19 @@ type Mode = 'vertical' | 'horizontal'
 const mode = ref<Mode>('vertical')
 const modeList: Mode[] = ['vertical', 'horizontal']
 function setMode(value: Mode) {
-  mode.value = value
+  mode.value = value;
 }
-
-const fixedHeaderAndTab = ref(true)
+const fixedHeaderAndTab = ref(true);
 function setFixedHeaderAndTab() {
-  fixedHeaderAndTab.value = !fixedHeaderAndTab.value
+  fixedHeaderAndTab.value = !fixedHeaderAndTab.value;
 }
-
-const fixedFooter = ref(false)
+const fixedFooter = ref(false);
 function setFixedFooter() {
-  fixedFooter.value = !fixedFooter.value
+  fixedFooter.value = !fixedFooter.value;
 }
-
-const siderCollapse = ref(false)
+const siderCollapse = ref(false);
 function setSiderCollapse() {
-  siderCollapse.value = !siderCollapse.value
+  siderCollapse.value = !siderCollapse.value;
 }
 </script>
 

@@ -7,7 +7,6 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import { useCssRender } from '@/hooks';
-
 interface Props {
   /** 顶部内边距 */
   paddingTop?: number;
@@ -20,7 +19,6 @@ interface Props {
   /** 动画过渡时间 */
   transitionTimingFunction?: string;
 }
-
 const props = withDefaults(defineProps<Props>(), {
   paddingTop: 0,
   paddingBottom: 0,
@@ -28,20 +26,16 @@ const props = withDefaults(defineProps<Props>(), {
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 });
-
 const { cssRender } = useCssRender();
-
 const style = computed(() => {
   const { paddingTop, paddingBottom, paddingLeft, transitionDuration, transitionTimingFunction } = props;
-  return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${0}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
 });
-
 // css
 cssRender('.adny-layout__main', {
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%',
-  transitionProperty: 'all'
-});
+  transitionProperty: 'padding-left'
+})
 </script>
-<style></style>

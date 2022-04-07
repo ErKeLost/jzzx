@@ -7,7 +7,6 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi';
 import { useCssRender } from '@/hooks';
-
 interface Props {
   /** 开启fixed布局 */
   fixed?: boolean;
@@ -24,19 +23,16 @@ interface Props {
   /** 动画过渡时间 */
   transitionTimingFunction?: string;
 }
-
 const props = withDefaults(defineProps<Props>(), {
   fixed: true,
-  zIndex: 2002,
+  zIndex: 1001,
   minWidth: 1200,
-  height: 70,
+  height: 56,
   paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 });
-
 const { cssRender } = useCssRender();
-
 const style = computed(() => {
   const { fixed, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
   const position = fixed ? 'fixed' : 'static';

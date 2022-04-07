@@ -1,5 +1,5 @@
 <template>
-  <div class="soybean-admin-layout" :style="{ minWidth: minWidth + 'px' }">
+  <LayoutContainer :style="{ minWidth: minWidth + 'px' }">
     <layout-header
       v-if="headerVisible"
       v-bind="commonProps"
@@ -25,48 +25,58 @@
     >
       <slot name="tab"></slot>
     </layout-tab>
-    <layout-sider
-      v-if="siderVisible"
-      v-bind="commonProps"
-      :z-index="siderZIndex"
-      :width="siderWidth"
-      :padding-top="siderPaddingTop"
-    >
-      <slot name="sider"></slot>
-    </layout-sider>
-    <layout-content
-      v-bind="commonProps"
-      :padding-top="contentPaddingTop"
-      :padding-bottom="contentPaddingBottom"
-      :padding-left="siderWidth"
-    >
-      <slot></slot>
-    </layout-content>
-    <layout-footer
-      v-if="footerVisible"
-      v-bind="commonProps"
-      :fixed="fixedFooter"
-      :z-index="footerZIndex"
-      :min-width="minWidth"
-      :height="footerHeight"
-      :padding-left="siderWidth"
-      :style="footerTransform"
-    >
-      <slot name="footer"></slot>
-    </layout-footer>
-  </div>
+    <LayoutContainer direction="vertical">
+      <layout-sider
+        v-if="siderVisible"
+        v-bind="commonProps"
+        :z-index="siderZIndex"
+        :width="siderWidth"
+        :padding-top="siderPaddingTop"
+        :top="siderTop"
+        :fixed="fixedSider"
+        :holdHeaderFixedSider="holdHeaderFixedSider"
+      >
+        <slot name="sider"></slot>
+      </layout-sider>
+      <LayoutContainer>
+        <layout-content
+          v-bind="commonProps"
+          :padding-top="contentPaddingTop"
+          :padding-bottom="contentPaddingBottom"
+          :padding-left="siderWidth"
+        >
+          <slot></slot>
+        </layout-content>
+        <layout-footer
+          v-if="footerVisible"
+          v-bind="commonProps"
+          :fixed="fixedFooter"
+          :z-index="footerZIndex"
+          :min-width="minWidth"
+          :height="footerHeight"
+          :padding-left="siderWidth"
+          :style="footerTransform"
+        >
+          <slot name="footer"></slot>
+        </layout-footer>
+      </LayoutContainer>
+    </LayoutContainer>
+  </LayoutContainer>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue-demi'
+import { computed, watch, onMounted } from 'vue-demi'
 import LayoutTab from './components/src/LayoutTab.vue'
 import LayoutContent from './components/src/LayoutContent.vue'
 import LayoutSider from './components/src/LayoutSider.vue'
 import LayoutHeader from './components/src/LayoutHeader.vue'
 import LayoutFooter from './components/src/LayoutFooter.vue'
+import LayoutContainer from './components/src/LayoutContainer.vue'
 import { useCssRender, useFixedTransformStyle } from './hooks'
 
 interface Props {
+  holdHeaderFixedSider?: boolean
+  fixedSider?: boolean
   /** 布局模式 */
   mode?: 'vertical' | 'horizontal'
   /** 最小宽度 */
@@ -102,9 +112,11 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   mode: 'vertical',
+  holdHeaderFixedSider: false,
+  fixedSider: false,
   minWidth: 1200,
   headerVisible: true,
-  headerHeight: 56,
+  headerHeight: 156,
   tabVisible: true,
   tabHeight: 44,
   fixedHeaderAndTab: true,
@@ -154,8 +166,24 @@ const headerPaddingLeft = computed(() =>
   isVertical.value ? siderWidth.value : 0
 )
 const siderPaddingTop = computed(() =>
-  !isVertical.value && props.headerVisible ? props.headerHeight : 0
+  !isVertical.value && props.headerVisible
+    ? props.headerHeight + props.tabHeight
+    : 0
 )
+const siderTop = computed(() => {
+  props.headerVisible ? props.headerHeight + props.tabHeight : 0
+})
+onMounted(() => {
+  watch(
+    () => siderTop.value,
+    (n) => {
+      console.log(n)
+    },
+    {
+      immediate: true
+    }
+  )
+})
 const contentPaddingTop = computed(() => {
   let height = 0
   if (props.fixedHeaderAndTab) {

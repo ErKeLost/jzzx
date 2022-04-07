@@ -1,23 +1,26 @@
 <template>
-  <aside class="adny-layout__sider" :style="style">
+  <aside :class="fixed ? 'adny-layout__fixedSider' : 'adny-layout__sider'" :style="style">
     <slot></slot>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue-demi';
-import { useCssRender } from '@/hooks';
+import { computed, watch } from 'vue-demi'
+import { useCssRender } from '@/hooks'
 interface Props {
+  top?: number
+  holdHeaderFixedSider?: boolean
+  fixed?: boolean
   /** fixed布局的层级 */
-  zIndex?: number;
+  zIndex?: number
   /** 宽度 */
-  width?: number;
+  width?: number
   /** 顶部内边距 */
-  paddingTop?: number;
+  paddingTop?: number
   /** 动画过渡时间 */
-  transitionDuration?: number;
+  transitionDuration?: number
   /** 动画过渡时间 */
-  transitionTimingFunction?: string;
+  transitionTimingFunction?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   zIndex: 1002,
@@ -25,14 +28,35 @@ const props = withDefaults(defineProps<Props>(), {
   paddingTop: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
-});
-const { cssRender } = useCssRender();
+})
+const { cssRender } = useCssRender()
 const style = computed(() => {
-  const { zIndex, width, paddingTop, transitionDuration, transitionTimingFunction } = props;
-  return `z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-});
+  console.log(props.paddingTop)
+  const {
+    holdHeaderFixedSider,
+    zIndex,
+    top,
+    width,
+    paddingTop,
+    transitionDuration,
+    transitionTimingFunction
+  } = props
+  const position = holdHeaderFixedSider ? 'fixed' : 'static'
+  return `position:${position};top: ${holdHeaderFixedSider ? top : 0
+    }px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+})
+watch(
+  () => style.value,
+  () => {
+    console.log(style.value)
+  }
+)
 
 cssRender('.adny-layout__sider', {
+  boxSizing: 'border-box',
+  transitionProperty: 'all'
+})
+cssRender('.adny-layout__fixedSider', {
   position: 'fixed',
   left: 0,
   top: 0,
@@ -40,6 +64,6 @@ cssRender('.adny-layout__sider', {
   width: '100%',
   height: '100%',
   transitionProperty: 'all'
-});
+})
 </script>
 <style></style>

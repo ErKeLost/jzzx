@@ -2,8 +2,9 @@
   <adny-layout
     :mode="mode"
     :fixed-header-and-tab="fixedHeaderAndTab"
-    :fixed-footer="fixedFooter"
     :sider-collapse="siderCollapse"
+    :fixedSider="fixedSider"
+    :holdHeaderFixedSider="holdHeaderFixedSider"
   >
     <template #header>
       <div text-red class="flex-center h-full bg-[#abf]">Header</div>
@@ -30,19 +31,19 @@
         </div>
         <div class="pt-24px">
           <span class="pr-8px">fixedHeaderAndTab</span>
-          <input
-            type="checkbox"
-            :checked="fixedHeaderAndTab"
-            @change="setFixedHeaderAndTab"
-          />
+          <input type="checkbox" :checked="fixedHeaderAndTab" @change="setFixedHeaderAndTab" />
+        </div>
+        <div class="pt-24px">
+          <span class="pr-8px">不占据header高度fixed</span>
+          <input type="checkbox" :checked="holdHeaderFixedSider" @change="setHoldHeaderFixedSider" />
+        </div>
+        <div class="pt-24px">
+          <span class="pr-8px">FixedSider</span>
+          <input type="checkbox" :checked="fixedSider" @change="setFixedSider" />
         </div>
         <div class="pt-24px">
           <span class="pr-8px">siderCollapse</span>
-          <input
-            type="checkbox"
-            :checked="siderCollapse"
-            @change="setSiderCollapse"
-          />
+          <input type="checkbox" :checked="siderCollapse" @change="setSiderCollapse" />
         </div>
       </div>
     </template>
@@ -50,10 +51,8 @@
       <div class="flex-center h-full bg-[#bfa]">Footer</div>
     </template>
     <div text-center>
-      <img
-        src="
-    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg"
-      />
+      <img src="
+    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg" />
     </div>
     <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
   </adny-layout>
@@ -73,9 +72,13 @@ const fixedHeaderAndTab = ref(true);
 function setFixedHeaderAndTab() {
   fixedHeaderAndTab.value = !fixedHeaderAndTab.value;
 }
-const fixedFooter = ref(false);
-function setFixedFooter() {
-  fixedFooter.value = !fixedFooter.value;
+const holdHeaderFixedSider = ref(false);
+function setHoldHeaderFixedSider() {
+  holdHeaderFixedSider.value = !holdHeaderFixedSider.value;
+}
+const fixedSider = ref(false);
+function setFixedSider() {
+  fixedSider.value = !fixedSider.value;
 }
 const siderCollapse = ref(false);
 function setSiderCollapse() {

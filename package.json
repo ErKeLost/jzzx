@@ -23,7 +23,6 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "dayjs": "^1.10.7",
     "vue": "^3.2.25"
   },
   "devDependencies": {

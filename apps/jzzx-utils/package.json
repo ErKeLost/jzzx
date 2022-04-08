@@ -10,6 +10,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@vueuse/core": "^7.3.0"
+    "@vueuse/core": "^7.3.0",
+    "dayjs": "^1.10.7"
   }
 }

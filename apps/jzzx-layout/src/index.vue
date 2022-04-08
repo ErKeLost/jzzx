@@ -40,7 +40,7 @@
       </layout-sider>
       <LayoutContainer>
         <layout-content
-          v-bind="commonProps"
+          v-bind="allProps"
           :padding-top="contentPaddingTop"
           :padding-bottom="contentPaddingBottom"
           :padding-left="siderWidth"
@@ -121,8 +121,8 @@ const props = withDefaults(defineProps<Props>(), {
   tabHeight: 44,
   fixedHeaderAndTab: true,
   footerVisible: true,
-  footerHeight: 48,
-  fixedFooter: true,
+  footerHeight: 68,
+  fixedFooter: false,
   siderVisible: true,
   siderWidth: 200,
   siderCollapsedWidth: 64,
@@ -148,6 +148,9 @@ const commonProps = computed(() => {
     transitionTimingFunction
   }
 })
+const allProps = computed(() => {
+  return props
+})
 /** 水平布局 */
 const isVertical = computed(() => props.mode === 'vertical')
 // fixed布局时的层级
@@ -171,7 +174,7 @@ const siderPaddingTop = computed(() =>
     : 0
 )
 const siderTop = computed(() => {
-  props.headerVisible ? props.headerHeight + props.tabHeight : 0
+  return props.headerVisible ? props.headerHeight + props.tabHeight : 0
 })
 onMounted(() => {
   watch(

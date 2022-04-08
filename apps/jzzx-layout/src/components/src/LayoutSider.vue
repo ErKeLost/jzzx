@@ -1,6 +1,9 @@
 <template>
-  <aside :class="fixed ? 'adny-layout__fixedSider' : 'adny-layout__sider'" :style="style">
-    <slot></slot>
+  <aside
+    :class="fixed ? 'adny-layout__fixedSider' : 'adny-layout__sider'"
+    :style="style"
+  >
+    <slot />
   </aside>
 </template>
 
@@ -41,9 +44,11 @@ const style = computed(() => {
     transitionDuration,
     transitionTimingFunction
   } = props
-  const position = holdHeaderFixedSider ? 'fixed' : 'static'
-  return `position:${position};top: ${holdHeaderFixedSider ? top : 0
-    }px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  const position = holdHeaderFixedSider ? 'fixed' : null
+  const topDis = holdHeaderFixedSider ? top : null
+  const height = holdHeaderFixedSider ? '100%' : null
+  console.log(topDis)
+  return `height: ${height};position:${position};top: ${topDis}px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 watch(
   () => style.value,

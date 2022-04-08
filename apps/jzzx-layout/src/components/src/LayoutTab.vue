@@ -43,8 +43,9 @@ const { cssRender } = useCssRender();
 const style = computed(() => {
   const { fixed, top, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
   const position = fixed ? 'fixed' : 'static';
-  return ``
+  // return `height: ${height}px`
   // return `position: ${position};top: ${top}px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  return `position: ${position};top: ${top}px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
 });
 
 // css

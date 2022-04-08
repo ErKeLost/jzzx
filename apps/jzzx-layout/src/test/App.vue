@@ -5,6 +5,8 @@
     :sider-collapse="siderCollapse"
     :fixedSider="fixedSider"
     :holdHeaderFixedSider="holdHeaderFixedSider"
+    :siderVisible="showSider"
+    :fixedFooter="fixedFooter"
   >
     <template #header>
       <div text-red class="flex-center h-full bg-[#abf]">Header</div>
@@ -31,19 +33,51 @@
         </div>
         <div class="pt-24px">
           <span class="pr-8px">fixedHeaderAndTab</span>
-          <input type="checkbox" :checked="fixedHeaderAndTab" @change="setFixedHeaderAndTab" />
+          <input
+            type="checkbox"
+            :checked="fixedHeaderAndTab"
+            @change="setFixedHeaderAndTab"
+          />
         </div>
         <div class="pt-24px">
           <span class="pr-8px">不占据header高度fixed</span>
-          <input type="checkbox" :checked="holdHeaderFixedSider" @change="setHoldHeaderFixedSider" />
+          <input
+            type="checkbox"
+            :checked="holdHeaderFixedSider"
+            @change="setHoldHeaderFixedSider"
+          />
         </div>
         <div class="pt-24px">
           <span class="pr-8px">FixedSider</span>
-          <input type="checkbox" :checked="fixedSider" @change="setFixedSider" />
+          <input
+            type="checkbox"
+            :checked="fixedSider"
+            @change="setFixedSider"
+          />
+        </div>
+        <div class="pt-24px">
+          <span class="pr-8px">展示sider</span>
+          <input
+            type="checkbox"
+            :checked="showSider"
+            @change="setShowSider"
+          />
+        </div>
+        <div class="pt-24px">
+          <span class="pr-8px">固定footer</span>
+          <input
+            type="checkbox"
+            :checked="fixedFooter"
+            @change="setFixedFooter"
+          />
         </div>
         <div class="pt-24px">
           <span class="pr-8px">siderCollapse</span>
-          <input type="checkbox" :checked="siderCollapse" @change="setSiderCollapse" />
+          <input
+            type="checkbox"
+            :checked="siderCollapse"
+            @change="setSiderCollapse"
+          />
         </div>
       </div>
     </template>
@@ -51,8 +85,10 @@
       <div class="flex-center h-full bg-[#bfa]">Footer</div>
     </template>
     <div text-center>
-      <img src="
-    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg" />
+      <img
+        src="
+    https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg"
+      />
     </div>
     <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
   </adny-layout>
@@ -66,23 +102,31 @@ type Mode = 'vertical' | 'horizontal'
 const mode = ref<Mode>('vertical')
 const modeList: Mode[] = ['vertical', 'horizontal']
 function setMode(value: Mode) {
-  mode.value = value;
+  mode.value = value
 }
-const fixedHeaderAndTab = ref(true);
+const showSider = ref(true)
+function setShowSider() {
+  showSider.value = !showSider.value
+}
+const fixedFooter = ref(false)
+function setFixedFooter() {
+  fixedFooter.value = !fixedFooter.value
+}
+const fixedHeaderAndTab = ref(true)
 function setFixedHeaderAndTab() {
-  fixedHeaderAndTab.value = !fixedHeaderAndTab.value;
+  fixedHeaderAndTab.value = !fixedHeaderAndTab.value
 }
-const holdHeaderFixedSider = ref(false);
+const holdHeaderFixedSider = ref(false)
 function setHoldHeaderFixedSider() {
-  holdHeaderFixedSider.value = !holdHeaderFixedSider.value;
+  holdHeaderFixedSider.value = !holdHeaderFixedSider.value
 }
-const fixedSider = ref(false);
+const fixedSider = ref(false)
 function setFixedSider() {
-  fixedSider.value = !fixedSider.value;
+  fixedSider.value = !fixedSider.value
 }
-const siderCollapse = ref(false);
+const siderCollapse = ref(false)
 function setSiderCollapse() {
-  siderCollapse.value = !siderCollapse.value;
+  siderCollapse.value = !siderCollapse.value
 }
 </script>
 

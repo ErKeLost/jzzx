@@ -1,30 +1,5 @@
 <template>
   <LayoutContainer :style="{ minWidth: minWidth + 'px' }">
-    <layout-header
-      v-if="headerVisible"
-      v-bind="commonProps"
-      :fixed="fixedHeaderAndTab"
-      :z-index="headerZIndex"
-      :min-width="minWidth"
-      :height="headerHeight"
-      :padding-left="headerPaddingLeft"
-      :style="headerAndTabTransform"
-    >
-      <slot name="header"></slot>
-    </layout-header>
-    <layout-tab
-      v-if="tabVisible"
-      v-bind="commonProps"
-      :fixed="fixedHeaderAndTab"
-      :z-index="tabZIndex"
-      :min-width="minWidth"
-      :top="headerHeight"
-      :height="tabHeight"
-      :padding-left="siderWidth"
-      :style="headerAndTabTransform"
-    >
-      <slot name="tab"></slot>
-    </layout-tab>
     <LayoutContainer direction="vertical">
       <layout-sider
         v-if="siderVisible"
@@ -39,6 +14,31 @@
         <slot name="sider"></slot>
       </layout-sider>
       <LayoutContainer>
+        <layout-header
+          v-if="headerVisible"
+          v-bind="commonProps"
+          :fixed="fixedHeaderAndTab"
+          :z-index="headerZIndex"
+          :min-width="minWidth"
+          :height="headerHeight"
+          :padding-left="headerPaddingLeft"
+          :style="headerAndTabTransform"
+        >
+          <slot name="header"></slot>
+        </layout-header>
+        <layout-tab
+          v-if="tabVisible"
+          v-bind="commonProps"
+          :fixed="fixedHeaderAndTab"
+          :z-index="tabZIndex"
+          :min-width="minWidth"
+          :top="headerHeight"
+          :height="tabHeight"
+          :padding-left="headerPaddingLeft"
+          :style="headerAndTabTransform"
+        >
+          <slot name="tab"></slot>
+        </layout-tab>
         <layout-content
           v-bind="allProps"
           :padding-top="contentPaddingTop"

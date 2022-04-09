@@ -5,23 +5,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue-demi';
-import { useCssRender } from '@/hooks';
+import { computed } from 'vue-demi'
+import { useCssRender } from '@/hooks'
 interface Props {
   /** 开启fixed布局 */
-  fixed?: boolean;
+  fixed?: boolean
   /** fixed布局的层级 */
-  zIndex?: number;
+  zIndex?: number
   /** 最小宽度 */
-  minWidth?: number;
+  minWidth?: number
   /** 高度 */
-  height?: number;
+  height?: number
   /** 左侧内边距 */
-  paddingLeft?: number;
+  paddingLeft?: number
   /** 动画过渡时间 */
-  transitionDuration?: number;
+  transitionDuration?: number
   /** 动画过渡时间 */
-  transitionTimingFunction?: string;
+  transitionTimingFunction?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   fixed: true,
@@ -31,15 +31,23 @@ const props = withDefaults(defineProps<Props>(), {
   paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
-});
-const { cssRender } = useCssRender();
+})
+const { cssRender } = useCssRender()
 const style = computed(() => {
-  const { fixed, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
-  const position = fixed ? 'fixed' : 'static';
+  const {
+    fixed,
+    zIndex,
+    minWidth,
+    height,
+    paddingLeft,
+    transitionDuration,
+    transitionTimingFunction
+  } = props
+  const position = fixed ? 'fixed' : 'static'
   // return `height: ${height}px`
   // return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-});
+  return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+})
 
 // css
 cssRender('.adny-layout__header', {
@@ -49,6 +57,6 @@ cssRender('.adny-layout__header', {
   boxSizing: 'border-box',
   width: '100%',
   transitionProperty: 'padding-left'
-});
+})
 </script>
 <style></style>

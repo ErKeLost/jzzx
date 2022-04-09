@@ -5,25 +5,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue-demi';
-import { useCssRender } from '@/hooks';
+import { computed } from 'vue-demi'
+import { useCssRender } from '@/hooks'
 interface Props {
+  siderVisible?: boolean
+  fixedSider?: boolean
   /** 开启fixed布局 */
-  fixed?: boolean;
+  fixed?: boolean
   /** fixed布局的层级 */
-  zIndex?: number;
+  zIndex?: number
   /** 最小宽度 */
-  minWidth?: number;
+  minWidth?: number
   /** 高度 */
-  height?: number;
+  height?: number
   /** 左侧内边距 */
-  paddingLeft?: number;
+  paddingLeft?: number
   /** 动画过渡时间 */
-  transitionDuration?: number;
+  transitionDuration?: number
   /** 动画过渡时间 */
-  transitionTimingFunction?: string;
+  transitionTimingFunction?: string
 }
 const props = withDefaults(defineProps<Props>(), {
+  fixedSider: false,
   fixed: true,
   zIndex: 999,
   minWidth: 1200,
@@ -31,15 +34,27 @@ const props = withDefaults(defineProps<Props>(), {
   paddingLeft: 0,
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
-});
-const { cssRender } = useCssRender();
+})
+const { cssRender } = useCssRender()
 const style = computed(() => {
-  const { fixed, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props;
-  const position = fixed ? 'fixed' : 'static';
-  // return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `position: ${position};z-index: ${zIndex};height: ${height}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-});
+  const {
+    siderVisible,
+    fixed,
+    zIndex,
+    minWidth,
+    height,
+    paddingLeft,
+    transitionDuration,
+    transitionTimingFunction,
+    fixedSider
+  } = props
+  const position = fixed ? 'fixed' : 'static'
+  const marginLeft = siderVisible &&  fixed ? paddingLeft : 0
+  console.log(fixedSider)
 
+  // return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
+  return `position: ${position};z-index: ${zIndex};height: ${height}px;padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+})
 
 // css
 cssRender('.adny-layout__footer', {
@@ -49,6 +64,6 @@ cssRender('.adny-layout__footer', {
   boxSizing: 'border-box',
   width: '100%',
   transitionProperty: 'padding-left'
-});
+})
 </script>
 <style></style>

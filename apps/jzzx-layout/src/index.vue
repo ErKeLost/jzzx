@@ -44,6 +44,9 @@
           :padding-top="contentPaddingTop"
           :padding-bottom="contentPaddingBottom"
           :padding-left="siderWidth"
+          :fixedSider="fixedSider"
+          :siderVisible="siderVisible"
+          :holdHeaderFixedSider="holdHeaderFixedSider"
         >
           <slot></slot>
         </layout-content>
@@ -56,6 +59,8 @@
           :height="footerHeight"
           :padding-left="siderWidth"
           :style="footerTransform"
+          :fixedSider="fixedSider"
+          :siderVisible="siderVisible"
         >
           <slot name="footer"></slot>
         </layout-footer>

@@ -1,5 +1,5 @@
 <template>
-  <LayoutContainer :style="{ minWidth: minWidth + 'px' }">
+  <!-- <LayoutContainer :style="{ minWidth: minWidth + 'px' }"> -->
     <LayoutContainer direction="vertical">
       <layout-sider
         v-if="siderVisible"
@@ -66,7 +66,7 @@
         </layout-footer>
       </LayoutContainer>
     </LayoutContainer>
-  </LayoutContainer>
+  <!-- </LayoutContainer> -->
 </template>
 
 <script setup lang="ts">
@@ -129,7 +129,7 @@ const props = withDefaults(defineProps<Props>(), {
   footerHeight: 68,
   fixedFooter: false,
   siderVisible: true,
-  siderWidth: 250,
+  siderWidth: 300,
   siderCollapsedWidth: 64,
   siderCollapse: false,
   transitionDuration: 300,

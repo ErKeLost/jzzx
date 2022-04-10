@@ -18,10 +18,11 @@ const style = computed(() => {
 })
 cssRender('.adny-layout__container', {
   display: 'flex',
+  flex: 1,
   flexBasis: 'auto',
   boxSizing: 'border-box',
   minWidth: 0,
-  width: '100%',
+  // width: '100%',
   height: '100%',
   transitionProperty: 'all'
 })

@@ -15,7 +15,7 @@
       <div class="flex-center h-full bg-[#fba]">Tab</div>
     </template>
     <template #sider>
-      <div class="h-full px-12px bg-[#fab] whitespace-nowrap">
+      <div class="h-full bg-[#fab] whitespace-nowrap">
         <div class="flex-center h-56px">Sider</div>
         <div>
           <h4>layout mode:</h4>

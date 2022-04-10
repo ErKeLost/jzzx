@@ -1,5 +1,5 @@
 <template>
-  <!-- <LayoutContainer :style="{ minWidth: minWidth + 'px' }"> -->
+  <LayoutContainer :style="{ minWidth: minWidth + 'px' }">
     <LayoutContainer direction="vertical">
       <layout-sider
         v-if="siderVisible"
@@ -66,7 +66,7 @@
         </layout-footer>
       </LayoutContainer>
     </LayoutContainer>
-  <!-- </LayoutContainer> -->
+  </LayoutContainer>
 </template>
 
 <script setup lang="ts">

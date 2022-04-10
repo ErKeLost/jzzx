@@ -52,6 +52,7 @@ const style = computed(() => {
 
 // css
 cssRender('.adny-layout__main', {
+  flex: 1,
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%'

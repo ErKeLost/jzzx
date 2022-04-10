@@ -129,7 +129,7 @@ const props = withDefaults(defineProps<Props>(), {
   footerHeight: 68,
   fixedFooter: false,
   siderVisible: true,
-  siderWidth: 200,
+  siderWidth: 250,
   siderCollapsedWidth: 64,
   siderCollapse: false,
   transitionDuration: 300,

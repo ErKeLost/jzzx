@@ -9,18 +9,18 @@
     :fixedFooter="fixedFooter"
   >
     <template #header>
-      <div text-red class="flex-center h-full bg-[#abf]">Header</div>
+      <div text-red class="h-full bg-[#abf]">Header</div>
     </template>
     <template #tab>
-      <div class="flex-center h-full bg-[#fba]">Tab</div>
+      <div class="h-full bg-[#fba]">Tab</div>
     </template>
     <template #sider>
-      <div class="h-full px-12px bg-[#fab] whitespace-nowrap">
+      <div class="h-full bg-[#fab] whitespace-nowrap">
         <div class="flex-center h-56px">Sider</div>
         <div>
           <h4>layout mode:</h4>
           <div v-for="item in modeList" :key="item">
-            <span class="pr-8px">{{ item }}</span>
+            <span>{{ item }}</span>
             <input
               type="radio"
               name="mode"
@@ -31,48 +31,44 @@
             />
           </div>
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">fixedHeaderAndTab</span>
+        <div>
+          <span>fixedHeaderAndTab</span>
           <input
             type="checkbox"
             :checked="fixedHeaderAndTab"
             @change="setFixedHeaderAndTab"
           />
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">不占据header高度fixed</span>
+        <div>
+          <span>不占据header高度fixed</span>
           <input
             type="checkbox"
             :checked="holdHeaderFixedSider"
             @change="setHoldHeaderFixedSider"
           />
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">FixedSider</span>
+        <div>
+          <span>FixedSider</span>
           <input
             type="checkbox"
             :checked="fixedSider"
             @change="setFixedSider"
           />
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">展示sider</span>
-          <input
-            type="checkbox"
-            :checked="showSider"
-            @change="setShowSider"
-          />
+        <div>
+          <span>展示sider</span>
+          <input type="checkbox" :checked="showSider" @change="setShowSider" />
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">固定footer</span>
+        <div>
+          <span>固定footer</span>
           <input
             type="checkbox"
             :checked="fixedFooter"
             @change="setFixedFooter"
           />
         </div>
-        <div class="pt-24px">
-          <span class="pr-8px">siderCollapse</span>
+        <div>
+          <span>siderCollapse</span>
           <input
             type="checkbox"
             :checked="siderCollapse"
@@ -82,7 +78,7 @@
       </div>
     </template>
     <template #footer>
-      <div class="flex-center h-full bg-[#bfa]">Footer</div>
+      <div class="h-full bg-[#bfa]">Footer</div>
     </template>
     <div text-center>
       <img

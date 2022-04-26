@@ -1,5 +1,10 @@
 import program from '../../program'
-import { addComponentAction, addPageAction, addStoreAction } from './actions'
+import {
+  addComponentAction,
+  addPageAction,
+  addStoreAction,
+  addTest
+} from './actions'
 const createVueCommand = () => {
   program
     .command('addcpn <name>')
@@ -24,6 +29,12 @@ const createVueCommand = () => {
     .description('新增vuex仓库, 例如: jzzx addstore user [-d dest]')
     .action((name) => {
       addStoreAction(name, program.opts().dest || 'src/store/modules')
+    })
+  program
+    .command('test <test>')
+    .description('测试指令')
+    .action((name) => {
+      addTest(name, program.opts().dest)
     })
 }
 

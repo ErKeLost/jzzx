@@ -7,11 +7,11 @@ import { complete } from '../../../utils/log'
 import { resolve } from 'path'
 import { chooseFileType, chooseComponentFile } from '../../../utils/pormpt'
 import { prompt } from 'inquirer'
-import ora from 'ora'
+const ora = require('ora')
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+    setTimeout(resolve, ms)
+  })
 }
 const handleEjsToFile = async (name, dest, template, filename) => {
   // 1.获取模块引擎的路径
@@ -76,32 +76,31 @@ const addStoreAction = async (name, dest) => {
 }
 
 const addTest = async (name: string, dest: string) => {
-  // const res = await prompt([
-  //   {
-  //     name: 'vue',
-  //     // 多选交互功能
-  //     // 单选将这里修改为 list 即可
-  //     type: 'checkbox',
-  //     message: 'Check the features needed for your project:',
-  //     choices: [
-  //       {
-  //         name: 'Babel',
-  //         checked: true
-  //       },
-  //       {
-  //         name: 'TypeScript'
-  //       },
-  //       {
-  //         name: 'Progressive Web App (PWA) Support'
-  //       },
-  //       {
-  //         name: 'Router'
-  //       }
-  //     ]
-  //   }
-  // ])
-  // console.log(res)
-  const ora = require('ora')
+  const res = await prompt([
+    {
+      name: 'vue',
+      // 多选交互功能
+      // 单选将这里修改为 list 即可
+      type: 'checkbox',
+      message: 'Check the features needed for your project:',
+      choices: [
+        {
+          name: 'Babel',
+          checked: true
+        },
+        {
+          name: 'TypeScript'
+        },
+        {
+          name: 'Progressive Web App (PWA) Support'
+        },
+        {
+          name: 'Router'
+        }
+      ]
+    }
+  ])
+  console.log(res)
   // 定义一个loading
   const spinner = ora('Loading unicorns')
   // 启动loading

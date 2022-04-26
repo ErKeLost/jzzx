@@ -47,6 +47,8 @@
           :fixedSider="fixedSider"
           :siderVisible="siderVisible"
           :holdHeaderFixedSider="holdHeaderFixedSider"
+          :footerHeight="footerHeight"
+          :fixedFooter="fixedFooter"
         >
           <slot></slot>
         </layout-content>

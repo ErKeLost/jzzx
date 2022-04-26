@@ -21,13 +21,18 @@ interface Props {
   transitionDuration?: number
   /** 动画过渡时间 */
   transitionTimingFunction?: string
+  /** 底部固定 导致margin高度 */
+  fixedFooter?: boolean
+  footerHeight?: number
 }
 const props = withDefaults(defineProps<Props>(), {
   paddingTop: 0,
   paddingBottom: 0,
   paddingLeft: 0,
   transitionDuration: 300,
-  transitionTimingFunction: 'ease-in-out'
+  transitionTimingFunction: 'ease-in-out',
+  fixedFooter: false,
+  footerHeight: 0
 })
 const { cssRender } = useCssRender()
 const style = computed(() => {
@@ -39,15 +44,17 @@ const style = computed(() => {
     paddingLeft,
     fixedSider,
     transitionDuration,
-    transitionTimingFunction
+    transitionTimingFunction,
+    fixedFooter,
+    footerHeight
   } = props
   const marginLeft =
     (siderVisible && fixedSider) || (holdHeaderFixedSider && fixedSider)
       ? paddingLeft
       : 0
-
+  const marginBottom = fixedFooter ? footerHeight : 0
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `marginBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css

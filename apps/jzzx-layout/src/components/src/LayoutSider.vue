@@ -40,12 +40,13 @@ const style = computed(() => {
     top,
     width,
     paddingTop,
+    fixed,
     transitionDuration,
     transitionTimingFunction
   } = props
   const position = holdHeaderFixedSider ? 'fixed' : null
   const topDis = holdHeaderFixedSider ? top : null
-  const height = holdHeaderFixedSider ? '100vh' : '100%'
+  const height = fixed ? '100vh' : null
   return `height: ${height};position:${position};top: ${topDis}px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 

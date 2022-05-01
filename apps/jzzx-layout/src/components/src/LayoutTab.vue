@@ -31,7 +31,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   fixed: true,
   top: 56,
-  zIndex: 999,
+  zIndex: 1001,
   minWidth: 1200,
   height: 56,
   paddingLeft: 0,

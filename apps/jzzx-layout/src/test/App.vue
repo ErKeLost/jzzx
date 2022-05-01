@@ -93,7 +93,7 @@
     https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg"
       />
     </div>
-    <div v-for="i in 10" :key="i" class="text-center">{{ i }}</div>
+    <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
   </adny-layout>
 </template>
 

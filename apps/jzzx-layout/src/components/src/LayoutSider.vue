@@ -47,7 +47,8 @@ const style = computed(() => {
   const position = holdHeaderFixedSider ? 'fixed' : null
   const topDis = holdHeaderFixedSider ? top : null
   const height = fixed ? '100vh' : null
-  return `height: ${height};position:${position};top: ${topDis}px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  const overflow = fixed ? 'auto' : 'hidden'
+  return `height: ${height};position:${position};top: ${topDis}px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px; overflow-y :${overflow};transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 cssRender('.adny-layout__sider', {

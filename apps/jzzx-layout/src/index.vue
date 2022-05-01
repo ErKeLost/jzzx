@@ -28,6 +28,7 @@
         </layout-header>
         <layout-tab
           v-if="tabVisible"
+          :headerVisible="headerVisible"
           v-bind="commonProps"
           :fixed="fixedHeaderAndTab"
           :z-index="tabZIndex"
@@ -182,17 +183,6 @@ const siderPaddingTop = computed(() =>
 )
 const siderTop = computed(() => {
   return props.headerVisible ? props.headerHeight + props.tabHeight : 0
-})
-onMounted(() => {
-  watch(
-    () => siderTop.value,
-    (n) => {
-      console.log(n)
-    },
-    {
-      immediate: true
-    }
-  )
 })
 const contentPaddingTop = computed(() => {
   let height = 0

@@ -34,7 +34,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const { cssRender } = useCssRender()
 const style = computed(() => {
-  console.log(props.paddingTop)
   const {
     holdHeaderFixedSider,
     zIndex,
@@ -46,16 +45,9 @@ const style = computed(() => {
   } = props
   const position = holdHeaderFixedSider ? 'fixed' : null
   const topDis = holdHeaderFixedSider ? top : null
-  const height = holdHeaderFixedSider ? '100%' : null
-  console.log(topDis)
+  const height = holdHeaderFixedSider ? '100vh' : '100%'
   return `height: ${height};position:${position};top: ${topDis}px; z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
-watch(
-  () => style.value,
-  () => {
-    console.log(style.value)
-  }
-)
 
 cssRender('.adny-layout__sider', {
   boxSizing: 'border-box',

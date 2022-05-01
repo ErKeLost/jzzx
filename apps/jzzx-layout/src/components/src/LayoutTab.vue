@@ -9,6 +9,7 @@ import { computed } from 'vue-demi'
 import { useCssRender } from '@/hooks'
 
 interface Props {
+  headerVisible?: boolean
   /** 开启fixed布局 */
   fixed?: boolean
   /** fixed布局的top距离 */
@@ -35,7 +36,8 @@ const props = withDefaults(defineProps<Props>(), {
   height: 56,
   paddingLeft: 0,
   transitionDuration: 300,
-  transitionTimingFunction: 'ease-in-out'
+  transitionTimingFunction: 'ease-in-out',
+  headerVisible: true
 })
 
 const { cssRender } = useCssRender()
@@ -49,12 +51,15 @@ const style = computed(() => {
     height,
     paddingLeft,
     transitionDuration,
-    transitionTimingFunction
+    transitionTimingFunction,
+    headerVisible
   } = props
   const position = fixed ? 'fixed' : 'static'
   // return `height: ${height}px`
   // return `position: ${position};top: ${top}px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `position: ${position};top: ${top}px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `position: ${position};top: ${
+    headerVisible ? top : 0
+  }px;z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css

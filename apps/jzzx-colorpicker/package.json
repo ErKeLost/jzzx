@@ -1,6 +1,6 @@
 {
-  "name": "@erkelost/layout",
-  "version": "2.3.7",
+  "name": "@erkelost/colorpicker",
+  "version": "1.0.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "css-render": "^0.15.8",
+    "async-validator": "^4.1.1",
+    "lodash": "^4.17.21",
     "vue-demi": "^0.12.1"
   },
   "devDependencies": {
@@ -31,9 +32,9 @@
     }
   },
   "keywords": [
-    "admin",
-    "layout",
-    "admin-layout",
+    "tsx",
+    "colorpicker",
+    "colorpicker",
     "vue2",
     "vue3"
   ],

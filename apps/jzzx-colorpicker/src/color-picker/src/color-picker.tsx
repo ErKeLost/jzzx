@@ -52,7 +52,7 @@ export default defineComponent({
       // resize 响应式 colorpicker
       window.addEventListener('resize', resize)
       // 点击展示 colorpicker
-      window.addEventListener('click', isExhibition)
+      // window.addEventListener('click', isExhibition)
     })
     // ** computeds
     // colorpicker panel 组件位置
@@ -151,9 +151,13 @@ export default defineComponent({
         showColorPicker
       )
     }
+    function ShowColorPicker () {
+      console.log(66666)
+      showColorPicker.value = !showColorPicker.value
+    }
     return () => {
       return (
-        <div class="devui-color-picker" ref={colorCubeRef}>
+        <div onClick={ShowColorPicker} class="devui-color-picker" ref={colorCubeRef}>
           <div class="devui-color-picker-container">
             <div class="devui-color-picker-container-wrap">
               <div

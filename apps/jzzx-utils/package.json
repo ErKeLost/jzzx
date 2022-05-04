@@ -1,5 +1,5 @@
 {
-  "name": "jzzx-utils",
+  "name": "@erkelost/utils",
   "version": "1.0.1",
   "main": "dist/utils.umd.min.js",
   "module": "dist/utils.es.min.js",

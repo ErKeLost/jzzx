@@ -154,6 +154,15 @@ export function RGBAtoHex(rgba: RGBA): Hex {
   ].join('')}`
 }
 
+export function RGBtoHex(rgba: RGBA): Hex {
+  const toHex = (v: number) => {
+    const h = Math.round(v).toString(16)
+    return ('00'.substr(0, 2 - h.length) + h).toUpperCase()
+  }
+
+  return `#${[toHex(rgba.r), toHex(rgba.g), toHex(rgba.b)].join('')}`
+}
+
 export function HexToRGBA(hex: Hex): RGBA {
   const rgba = chunk(hex.slice(1), 2).map((c: string) => parseInt(c, 16))
 

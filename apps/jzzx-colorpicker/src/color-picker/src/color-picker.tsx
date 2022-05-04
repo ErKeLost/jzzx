@@ -152,7 +152,6 @@ export default defineComponent({
       )
     }
     function ShowColorPicker () {
-      console.log(66666)
       showColorPicker.value = !showColorPicker.value
     }
     return () => {

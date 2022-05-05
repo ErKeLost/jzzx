@@ -7,6 +7,7 @@
     :holdHeaderFixedSider="holdHeaderFixedSider"
     :siderVisible="showSider"
     :fixedFooter="fixedFooter"
+    :tabMoveable="tabMoveable"
   >
     <template #header>
       <div text-red class="flex-center h-full bg-[#abf]">Header</div>
@@ -37,6 +38,14 @@
             type="checkbox"
             :checked="fixedHeaderAndTab"
             @change="setFixedHeaderAndTab"
+          />
+        </div>
+        <div class="pt-24px">
+          <span class="pr-8px">tabMoveable</span>
+          <input
+            type="checkbox"
+            :checked="tabMoveable"
+            @change="setTabMoveable"
           />
         </div>
         <div class="pt-24px">
@@ -75,11 +84,7 @@
             @change="setSiderCollapse"
           />
         </div>
-        <div
-          v-for="i in 100"
-          :key="i"
-          class="text-center"
-        >
+        <div v-for="i in 100" :key="i" class="text-center">
           {{ i }}
         </div>
       </div>
@@ -116,6 +121,10 @@ function setFixedFooter() {
   fixedFooter.value = !fixedFooter.value
 }
 const fixedHeaderAndTab = ref(true)
+const tabMoveable = ref(true)
+function setTabMoveable() {
+  tabMoveable.value = !tabMoveable.value
+}
 function setFixedHeaderAndTab() {
   fixedHeaderAndTab.value = !fixedHeaderAndTab.value
 }

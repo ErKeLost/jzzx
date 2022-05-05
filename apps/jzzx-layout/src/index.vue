@@ -179,12 +179,23 @@ const siderWidth = computed(() => {
 const headerPaddingLeft = computed(() =>
   isVertical.value ? siderWidth.value : 0
 )
-const tabPaddingLeft = computed(() =>
-  isVertical.value ? props.tabMoveable ? siderWidth.value : 0 : 0
-)
+const tabPaddingLeft = computed(() => {
+  console.log(
+    !isVertical.value
+      ? props.tabMoveable
+        ? siderWidth.value
+        : 0
+      : siderWidth.value
+  )
+  return !isVertical.value
+    ? props.tabMoveable
+      ? siderWidth.value
+      : 0
+    : siderWidth.value
+})
 const siderPaddingTop = computed(() =>
   !isVertical.value && props.headerVisible
-    ? props.headerHeight + props.tabHeight
+    ? props.headerHeight + (!props.tabMoveable ? props.tabHeight : 0)
     : 0
 )
 const siderTop = computed(() => {

@@ -8,6 +8,8 @@ function install(app: App) {
 AdnyLayout.install = install
 AdnyLayout.name = 'AdnyLayout'
 export interface LayoutProps {
+  // 第三种布局 tab 不跟 header 一起变 的 顶部菜单布局
+  tabMoveable?: boolean
   /** 布局模式 */
   mode?: 'vertical' | 'horizontal'
   /** 最小宽度 */

@@ -154,7 +154,7 @@ export function RGBAtoHex(rgba: RGBA): Hex {
   ].join('')}`
 }
 
-export function RGBtoHex(rgba: RGBA): Hex {
+export function RGBtoHex(rgba: RGB): Hex {
   const toHex = (v: number) => {
     const h = Math.round(v).toString(16)
     return ('00'.substr(0, 2 - h.length) + h).toUpperCase()

@@ -35,7 +35,7 @@
           :min-width="minWidth"
           :top="headerHeight"
           :height="tabHeight"
-          :padding-left="headerPaddingLeft"
+          :padding-left="tabPaddingLeft"
           :style="headerAndTabTransform"
         >
           <slot name="tab"></slot>
@@ -83,6 +83,8 @@ import LayoutContainer from './components/src/LayoutContainer.vue'
 import { useCssRender, useFixedTransformStyle } from './hooks'
 
 interface Props {
+  // 第三种布局 tab 不跟 header 一起变 的 顶部菜单布局
+  tabMoveable?: boolean
   holdHeaderFixedSider?: boolean
   fixedSider?: boolean
   /** 布局模式 */
@@ -119,6 +121,7 @@ interface Props {
   transitionTimingFunction?: string
 }
 const props = withDefaults(defineProps<Props>(), {
+  tabMoveable: true,
   mode: 'vertical',
   holdHeaderFixedSider: false,
   fixedSider: false,
@@ -175,6 +178,9 @@ const siderWidth = computed(() => {
 // 各子组件的属性
 const headerPaddingLeft = computed(() =>
   isVertical.value ? siderWidth.value : 0
+)
+const tabPaddingLeft = computed(() =>
+  isVertical.value ? props.tabMoveable ? siderWidth.value : 0 : 0
 )
 const siderPaddingTop = computed(() =>
   !isVertical.value && props.headerVisible

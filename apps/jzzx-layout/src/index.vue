@@ -180,13 +180,6 @@ const headerPaddingLeft = computed(() =>
   isVertical.value ? siderWidth.value : 0
 )
 const tabPaddingLeft = computed(() => {
-  console.log(
-    !isVertical.value
-      ? props.tabMoveable
-        ? siderWidth.value
-        : 0
-      : siderWidth.value
-  )
   return !isVertical.value
     ? props.tabMoveable
       ? siderWidth.value

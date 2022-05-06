@@ -4,7 +4,7 @@ import { ColorPickerHistoryProps, colorPickerHistoryProps } from './color-picker
 import './color-history.scss';
 import { fromHexa } from '../../utils/color-utils';
 import { provideColorOptions, ColorPickerColor } from '../../utils/color-utils-types';
-import { debounce } from 'lodash';
+import { debounce } from '../../utils/debounce';
 
 const STORAGE_KEY = 'STORAGE_COLOR_PICKER_HISTORY_KEY';
 const MAX_HISOTRY_COUNT = 8;

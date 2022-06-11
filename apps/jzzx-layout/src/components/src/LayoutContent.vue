@@ -54,7 +54,7 @@ const style = computed(() => {
       : 0
   const marginBottom = fixedFooter ? footerHeight : 0
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `marginBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css

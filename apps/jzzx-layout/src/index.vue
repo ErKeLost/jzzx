@@ -13,7 +13,7 @@
       >
         <slot name="sider"></slot>
       </layout-sider>
-      <LayoutContainer>
+      <LayoutContainer :style="{ backgroundColor: contentBg }">
         <layout-header
           v-if="headerVisible"
           v-bind="commonProps"
@@ -41,7 +41,7 @@
           <slot name="tab"></slot>
         </layout-tab>
         <layout-content
-          :style="{ backgroundColor: contentBg, maxWidth: maxWidth }"
+          :style="{ maxWidth: maxWidth }"
           v-bind="allProps"
           :padding-top="contentPaddingTop"
           :padding-bottom="contentPaddingBottom"
@@ -53,7 +53,7 @@
           :fixedFooter="fixedFooter"
           :showFooter="footerVisible"
           :height="otherHeight"
-          :maxWidth="maxWidth"
+          :maxWidth="maxWidthDiv"
         >
           <slot></slot>
           <layout-footer
@@ -150,6 +150,8 @@ const props = withDefaults(defineProps<Props>(), {
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 })
+console.log(props.maxWidth)
+
 const { cssRender } = useCssRender()
 // fixed布局时，应用translateX样式(水平方向出现滚动条，拖动滚动条时，fixed元素跟着滚动)
 const hasFixedEl = computed(() => props.fixedHeaderAndTab || props.fixedFooter)
@@ -184,6 +186,7 @@ const headerZIndex = 1001
 const tabZIndex = 999
 const siderZIndex = computed(() => (isVertical.value ? 1002 : 1000))
 const footerZIndex = 999
+const maxWidthDiv = computed(() => props.maxWidth)
 /** 侧边宽度 */
 const siderWidth = computed(() => {
   const { siderCollapse, siderWidth, siderCollapsedWidth } = props

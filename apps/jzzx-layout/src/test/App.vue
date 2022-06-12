@@ -7,6 +7,7 @@
     :holdHeaderFixedSider="holdHeaderFixedSider"
     :siderVisible="showSider"
     :fixedFooter="fixedFooter"
+    :footerVisible="showFooter"
     :tabMoveable="tabMoveable"
   >
     <template #header>
@@ -69,6 +70,10 @@
           <input type="checkbox" :checked="showSider" @change="setShowSider" />
         </div>
         <div class="pt-24px">
+          <span class="pr-8px">展示footer</span>
+          <input type="checkbox" :checked="showFooter" @change="setShowFooter" />
+        </div>
+        <div class="pt-24px">
           <span class="pr-8px">固定footer</span>
           <input
             type="checkbox"
@@ -113,8 +118,12 @@ function setMode(value: Mode) {
   mode.value = value
 }
 const showSider = ref(true)
+const showFooter = ref(true)
 function setShowSider() {
   showSider.value = !showSider.value
+}
+function setShowFooter() {
+  showFooter.value = !showFooter.value
 }
 const fixedFooter = ref(false)
 function setFixedFooter() {

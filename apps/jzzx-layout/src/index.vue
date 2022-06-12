@@ -41,6 +41,7 @@
           <slot name="tab"></slot>
         </layout-tab>
         <layout-content
+          :style="{ backgroundColor: contentBg }"
           v-bind="allProps"
           :padding-top="contentPaddingTop"
           :padding-bottom="contentPaddingBottom"
@@ -52,6 +53,7 @@
           :fixedFooter="fixedFooter"
           :showFooter="footerVisible"
           :height="otherHeight"
+          :maxWidth="maxWidth"
         >
           <slot></slot>
           <layout-footer
@@ -86,6 +88,8 @@ import LayoutContainer from './components/src/LayoutContainer.vue'
 import { useCssRender, useFixedTransformStyle } from './hooks'
 
 interface Props {
+  maxWidth?: number
+  contentBg?: string
   // 第三种布局 tab 不跟 header 一起变 的 顶部菜单布局
   tabMoveable?: boolean
   holdHeaderFixedSider?: boolean
@@ -124,6 +128,8 @@ interface Props {
   transitionTimingFunction?: string
 }
 const props = withDefaults(defineProps<Props>(), {
+  contentBg: '#f5f6f9',
+  maxWidth: 1920,
   tabMoveable: true,
   mode: 'vertical',
   holdHeaderFixedSider: false,

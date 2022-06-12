@@ -53,22 +53,22 @@
           :showFooter="footerVisible"
         >
           <slot></slot>
+          <layout-footer
+            v-if="footerVisible"
+            v-bind="commonProps"
+            :fixed="fixedFooter"
+            :z-index="footerZIndex"
+            :min-width="minWidth"
+            :height="footerHeight"
+            :padding-left="siderWidth"
+            :style="footerTransform"
+            :fixedSider="fixedSider"
+            :siderVisible="siderVisible"
+            :showFooter="footerVisible"
+          >
+            <slot name="footer"></slot>
+          </layout-footer>
         </layout-content>
-        <layout-footer
-          v-if="footerVisible"
-          v-bind="commonProps"
-          :fixed="fixedFooter"
-          :z-index="footerZIndex"
-          :min-width="minWidth"
-          :height="footerHeight"
-          :padding-left="siderWidth"
-          :style="footerTransform"
-          :fixedSider="fixedSider"
-          :siderVisible="siderVisible"
-          :showFooter="footerVisible"
-        >
-          <slot name="footer"></slot>
-        </layout-footer>
       </LayoutContainer>
     </LayoutContainer>
   </LayoutContainer>

@@ -141,7 +141,7 @@ const holdHeaderFixedSider = ref(false)
 function setHoldHeaderFixedSider() {
   holdHeaderFixedSider.value = !holdHeaderFixedSider.value
 }
-const fixedSider = ref(false)
+const fixedSider = ref(true)
 function setFixedSider() {
   fixedSider.value = !fixedSider.value
 }

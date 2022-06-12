@@ -41,7 +41,7 @@
           <slot name="tab"></slot>
         </layout-tab>
         <layout-content
-          :style="{ backgroundColor: contentBg }"
+          :style="{ backgroundColor: contentBg, maxWidth: maxWidth }"
           v-bind="allProps"
           :padding-top="contentPaddingTop"
           :padding-bottom="contentPaddingBottom"

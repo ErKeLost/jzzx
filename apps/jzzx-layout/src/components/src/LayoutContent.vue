@@ -68,8 +68,8 @@ cssRender('.adny-layout__main', {
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%',
-  paddingRight: 'auto',
-  paddingLeft: 'auto'
+  marginRight: 'auto',
+  marginLeft: 'auto'
   // overflowY: 'scroll'
   // transitionProperty: 'padding-left'
 })

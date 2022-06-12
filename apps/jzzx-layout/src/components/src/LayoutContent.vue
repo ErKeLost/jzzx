@@ -54,10 +54,9 @@ const style = computed(() => {
     (siderVisible && fixedSider) || (holdHeaderFixedSider && fixedSider)
       ? paddingLeft
       : 0
-  const paddingLeftWdth = siderVisible ? 0 : paddingLeft
   const marginBottom = fixedFooter && showFooter ? footerHeight : 0
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${paddingLeftWdth}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css
@@ -65,7 +64,7 @@ cssRender('.adny-layout__main', {
   flex: 1,
   flexGrow: 1,
   boxSizing: 'border-box',
-  width: '100%',
+  width: '100%'
   // transitionProperty: 'padding-left'
 })
 </script>

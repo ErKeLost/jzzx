@@ -164,7 +164,9 @@ const commonProps = computed(() => {
 })
 const otherHeight = computed(() => {
   const footer = props.fixedFooter ? props.footerHeight : 0
-  return props.headerHeight + props.tabHeight + footer
+  const tab = props.tabVisible ? props.tabHeight : 0
+  const header = props.headerVisible ? props.headerHeight : 0
+  return tab + header + footer
 })
 const allProps = computed(() => {
   return props

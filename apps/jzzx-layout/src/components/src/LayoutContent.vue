@@ -67,7 +67,7 @@ cssRender('.adny-layout__main', {
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%',
-  overflowY: 'scroll'
+  // overflowY: 'scroll'
   // transitionProperty: 'padding-left'
 })
 </script>

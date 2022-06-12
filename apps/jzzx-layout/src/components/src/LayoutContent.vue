@@ -25,6 +25,7 @@ interface Props {
   fixedFooter?: boolean
   footerHeight?: number
   showFooter?: boolean
+  height?: number
 }
 const props = withDefaults(defineProps<Props>(), {
   paddingTop: 0,
@@ -48,7 +49,8 @@ const style = computed(() => {
     transitionTimingFunction,
     fixedFooter,
     footerHeight,
-    showFooter
+    showFooter,
+    height
   } = props
   const marginLeft =
     (siderVisible && fixedSider) || (holdHeaderFixedSider && fixedSider)
@@ -56,15 +58,16 @@ const style = computed(() => {
       : 0
   const marginBottom = fixedFooter && showFooter ? footerHeight : 0
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
-  return `paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  // return `height: calc(100vh - ${height}px);paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `height: calc(100vh - ${height}px);margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css
 cssRender('.adny-layout__main', {
-  flex: 1,
   flexGrow: 1,
   boxSizing: 'border-box',
-  width: '100%'
+  width: '100%',
+  overflowY: 'scroll'
   // transitionProperty: 'padding-left'
 })
 </script>

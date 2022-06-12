@@ -51,6 +51,7 @@
           :footerHeight="footerHeight"
           :fixedFooter="fixedFooter"
           :showFooter="footerVisible"
+          :height="otherHeight"
         >
           <slot></slot>
           <layout-footer
@@ -160,6 +161,10 @@ const commonProps = computed(() => {
     transitionDuration,
     transitionTimingFunction
   }
+})
+const otherHeight = computed(() => {
+  const footer = props.fixedFooter ? props.footerHeight : 0
+  return props.headerHeight + props.tabHeight + footer
 })
 const allProps = computed(() => {
   return props

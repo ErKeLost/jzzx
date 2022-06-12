@@ -24,6 +24,7 @@ interface Props {
   /** 底部固定 导致margin高度 */
   fixedFooter?: boolean
   footerHeight?: number
+  showFooter?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   paddingTop: 0,
@@ -46,13 +47,14 @@ const style = computed(() => {
     transitionDuration,
     transitionTimingFunction,
     fixedFooter,
-    footerHeight
+    footerHeight,
+    showFooter
   } = props
   const marginLeft =
     (siderVisible && fixedSider) || (holdHeaderFixedSider && fixedSider)
       ? paddingLeft
       : 0
-  const marginBottom = fixedFooter ? footerHeight : 0
+  const marginBottom = fixedFooter || !showFooter ? footerHeight : 0
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
   return `paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })

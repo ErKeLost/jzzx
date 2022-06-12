@@ -24,6 +24,7 @@ interface Props {
   transitionDuration?: number
   /** 动画过渡时间 */
   transitionTimingFunction?: string
+  showFooter?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   fixedSider: false,

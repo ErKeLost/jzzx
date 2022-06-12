@@ -50,6 +50,7 @@
           :holdHeaderFixedSider="holdHeaderFixedSider"
           :footerHeight="footerHeight"
           :fixedFooter="fixedFooter"
+          :showFooter="footerVisible"
         >
           <slot></slot>
         </layout-content>
@@ -64,6 +65,7 @@
           :style="footerTransform"
           :fixedSider="fixedSider"
           :siderVisible="siderVisible"
+          :showFooter="footerVisible"
         >
           <slot name="footer"></slot>
         </layout-footer>

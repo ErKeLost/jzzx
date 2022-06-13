@@ -63,7 +63,7 @@ const style = computed(() => {
 
   // return `padding-top: ${paddingTop}px;padding-bottom: ${paddingBottom}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`;
   // return `height: calc(100vh - ${height}px);paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
-  return `max-width:${maxWidth}px;height: calc(100vh - ${height}px);margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `max-width:${maxWidth}px;paddingBottom: ${marginBottom}px;margin-top: ${paddingTop}px; padding-left: ${marginLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
 })
 
 // css

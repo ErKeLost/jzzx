@@ -13,7 +13,7 @@
       >
         <slot name="sider"></slot>
       </layout-sider>
-      <LayoutContainer :style="{ backgroundColor: contentBg }">
+      <LayoutContainer :style="{ height: '100vh', backgroundColor: contentBg }">
         <layout-header
           v-if="headerVisible"
           v-bind="commonProps"

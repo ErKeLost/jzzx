@@ -17,7 +17,7 @@
       <div class="flex-center h-full bg-[#fba]">Tab</div>
     </template>
     <template #sider>
-      <div class="bg-[#fab] whitespace-nowrap">
+      <div class="bg-[#fab] whitespace-nowrap" h-full>
         <div class="flex-center h-56px">Sider</div>
         <div>
           <h4>layout mode:</h4>
@@ -89,9 +89,9 @@
             @change="setSiderCollapse"
           />
         </div>
-        <div v-for="i in 100" :key="i" class="text-center">
+        <!-- <div v-for="i in 100" :key="i" class="text-center">
           {{ i }}
-        </div>
+        </div> -->
       </div>
     </template>
     <template #footer>
@@ -103,7 +103,7 @@
     https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-dark.svg"
       />
     </div>
-    <div v-for="i in 100" :key="i" class="text-center">{{ i }}</div>
+    <div v-for="i in 20" :key="i" class="text-center">{{ i }}</div>
   </adny-layout>
 </template>
 

@@ -12,6 +12,9 @@ const VClickOutSideDirective = (app: any) => {
     },
     [hooks.updated](el: HTMLElement, { value }: any) {
       clickoutside(el, value)
+    },
+    [hooks.unMounted]() {
+      deleteClickOutside()
     }
   })
 }

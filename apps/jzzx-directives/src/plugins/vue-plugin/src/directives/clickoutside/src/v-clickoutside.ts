@@ -9,6 +9,6 @@ export const clickoutside = (el: HTMLElement, value: any) => {
   )
 }
 
-export const deleteClickOutside = (el: HTMLElement, value: any) => {
+export const deleteClickOutside = () => {
   document.removeEventListener('click', () => {})
 }

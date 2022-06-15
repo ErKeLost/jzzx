@@ -1,12 +1,15 @@
 import { isClient } from '@vueuse/core'
-import { isElement } from '@element-plus/utils'
+export const isElement = (e: unknown): e is Element => {
+  if (typeof Element === 'undefined') return false
+  return e instanceof Element
+}
 
+export type Nullable<T> = null | T
 import type {
   ComponentPublicInstance,
   DirectiveBinding,
-  ObjectDirective,
+  ObjectDirective
 } from 'vue'
-import type { Nullable } from '@element-plus/utils'
 
 type DocumentHandler = <T extends MouseEvent>(mouseup: T, mousedown: T) => void
 type FlushList = Map<
@@ -87,7 +90,7 @@ const ClickOutside: ObjectDirective = {
 
     nodeList.get(el).push({
       documentHandler: createDocumentHandler(el, binding),
-      bindingFn: binding.value,
+      bindingFn: binding.value
     })
   },
   updated(el: HTMLElement, binding: DirectiveBinding) {
@@ -101,7 +104,7 @@ const ClickOutside: ObjectDirective = {
     )
     const newHandler = {
       documentHandler: createDocumentHandler(el, binding),
-      bindingFn: binding.value,
+      bindingFn: binding.value
     }
 
     if (oldHandlerIndex >= 0) {
@@ -114,7 +117,7 @@ const ClickOutside: ObjectDirective = {
   unmounted(el: HTMLElement) {
     // remove all listeners when a component unmounted
     nodeList.delete(el)
-  },
+  }
 }
 
 export default ClickOutside

@@ -150,7 +150,6 @@ const props = withDefaults(defineProps<Props>(), {
   transitionDuration: 300,
   transitionTimingFunction: 'ease-in-out'
 })
-console.log(props.maxWidth)
 
 const { cssRender } = useCssRender()
 // fixed布局时，应用translateX样式(水平方向出现滚动条，拖动滚动条时，fixed元素跟着滚动)
